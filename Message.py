@@ -1,19 +1,47 @@
 import socket
 import ast
 
+"""
+message codes:
+1 - request to connect
+2 - request to disconnect
+3 - request to receive data
+"""
+
+
 class Message:
     def __init__(self, msg="", sock=None):
-        self.msg = ""
-        self.sock = sock #socket object
+        self._msg = ""
+        self._id = 0
+        self._code = 0
+        self._sock = sock #socket object
 
     def __str__(self):
         return str(self.__dict__)
     
+    def setMsg(self, msg):
+        self._msg = msg
+    
+    def getMsg(self):
+        return self._msg
+    
+    def setId(self, id):
+        self._id = id
+    
+    def getId(self):
+        return self._id
+    
+    def setCode(self, code):
+        self._code = code
+    
+    def getCode(self):
+        return self._code
+
     def sendMessage(self, message, address, port):
         try:
             # Send the message
             str_message = str(message)
-            self.sock.sendto(str_message.encode(), (address, port))
+            self._sock.sendto(str_message.encode(), (address, port))
         except socket.error as e:
             print("Error while sending message:", e)
 
@@ -21,10 +49,10 @@ class Message:
         try:
             # Receive messages continuously
             while True:
-                data, addr = self.sock.recvfrom(2048)  # buffer size is 2048 bytes
+                data, (recvAddr, recvPort) = self._sock.recvfrom(2048)  # buffer size is 2048 bytes
                 res = ast.literal_eval(data.decode())
-                print(res)
-                return res
+                return res, recvAddr, recvPort
+
         except socket.error as e:
             print("Error while receiving message:", e)
 
