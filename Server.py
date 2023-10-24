@@ -2,17 +2,19 @@ import Message
 import socket
 import time
 import struct
-
+from random import randint
 
 serverPort = 4501
-serverIP = "10.254.224.66"
+
+
 class Server:
     def __init__(self, port):
+        rate = input("Intervalo de tempo (em segundos): ")
         self._port = port
         self._ip = socket.gethostbyname(socket.gethostname())
         self._sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        self._sock.settimeout(0.1)
-        self._sock.bind((serverIP, self._port))
+        self._sock.settimeout(float(rate))
+        self._sock.bind((self._ip, self._port))
         self._message = Message.Message(sock=self._sock)
         self._addressList = []
         self._portList = []
@@ -49,7 +51,7 @@ class Server:
 
             msgDict = {
                 "message": b"Accepting connection",
-                "code": 2,
+                "code": 1,
                 "id": 1
             }
             
@@ -65,12 +67,12 @@ class Server:
         except Exception:
             print("Error receiving message")
             
-    def sendMessageToAll(self, message):
+    def sendMessageToAll(self, message, code=2, msgId=1):
         for i in range(len(self._addressList)):
             msgDict = {
                 "message": message,
-                "code": 2,
-                "id": 1
+                "code": code,
+                "id": msgId
             }
             
             self._message.sendMessage(msgDict, self._addressList[i], self._portList[i])
@@ -79,8 +81,6 @@ class Server:
         self._sock.close()
     
 def main():
-    BUFFER_SIZE = 65507  # Tamanho máximo do pacote UDP
-
     # Create a server object
     server = Server(serverPort)
 
@@ -89,20 +89,24 @@ def main():
     print("listening....")
 
     while True:
-        server.receiveMessage()
+        server.receiveMessage() # fica escutando ate algum host conectar
         if(len(server.getAddressList())):
             break
-    
+    i = 0
     with open('shrekScript.txt', "rb") as f:
         while True:
-            contents = f.read(2048)
-            if len(contents)<=0:
+            contents = f.read(2048) # le 2048 bytes do arquivo
+            if len(contents)<=0: # verifica se acabou o arquivo
                 break
-            server.receiveMessage()
+            i+=1
+            server.receiveMessage() # escuta até dar timeout
             print("sending")
-            server.sendMessageToAll(contents)
-    
-
+            number = randint(0, 100)
+            if(number >= 20):
+                server.sendMessageToAll(contents, 2, i) # envia o conteudo para todos os hosts da lista
+    server.sendMessageToAll("End of transmission", 3, i+1) # indica para todos os hosts da lista que a transmissao acabou
+    print("Total messages sent: ", i+1)
+    server.close()
         
 if __name__ == "__main__":
     main()
