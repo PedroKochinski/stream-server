@@ -1,5 +1,6 @@
 import socket
 import ast
+import pickle
 
 """
 message codes:
@@ -19,37 +20,21 @@ class Message:
     def sendMessage(self, message, address, port):
         try:
             # Send the message
-            str_message = str(message)
-            self._sock.sendto(str_message.encode(), (address, port))
+            self._sock.sendto(pickle.dumps(message), (address, port))
         except socket.error as e:
             print("Error while sending message:", e)
-
-    def sendByteMessage(self, message, address, port):
-        try:
-            # Send the message
-            self._sock.sendto(message, (address, port))
-        except socket.error as e:
-            print("Error while sending message:", e)
-
 
     def receiveMessage(self, port):
         try:
-            # Receive messages continuously
-            while True:
-                data, (recvAddr, recvPort) = self._sock.recvfrom(2048)  # buffer size is 2048 bytes
-                res = ast.literal_eval(data.decode())
-                return res, recvAddr, recvPort
+            data, (recvAddr, recvPort) = self._sock.recvfrom(4096)  # buffer size is 2048 bytes
+            res = pickle.loads(data)
+            print(res)
+            return res, recvAddr, recvPort
+
+        except socket.timeout:
+            print("Timed Out")
 
         except socket.error as e:
             print("Error while receiving message:", e)
 
-    def receiveByteMessage(self, port):
-        try:
-            # Receive messages continuously
-            while True:
-                data, (recvAddr, recvPort) = self._sock.recvfrom(2048)  # buffer size is 2048 bytes
-                return data, recvAddr, recvPort
-            
-        except socket.error as e:
-            print("Error while receiving message:", e)
     
