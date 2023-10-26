@@ -64,8 +64,8 @@ class Server:
                 print("Address already in list.")
             self._message.sendMessage(msgDict, recvAddr, recvPort)
         
-        except Exception:
-            print("Error receiving message")
+        except TypeError:
+            print("Type Error")
             
     def sendMessageToAll(self, message, code=2, msgId=1):
         for i in range(len(self._addressList)):
@@ -100,7 +100,7 @@ def main():
                 break
             i+=1
             server.receiveMessage() # escuta até dar timeout
-            print("sending")
+            print("sending with ID = ", i)
             number = randint(0, 100)
             if(number >= 20):
                 server.sendMessageToAll(contents, 2, i) # envia o conteudo para todos os hosts da lista

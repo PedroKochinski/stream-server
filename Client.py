@@ -1,7 +1,7 @@
 import socket
 import Message
 
-serverIP = "10.254.224.52"
+serverIP = input("Digite o IP do servidor: ")
 serverPort = 4501
 name = input("Enter the file name: ")
 
@@ -9,7 +9,7 @@ class Client:
     def __init__(self, port):
         self._serverPort = port
         self._sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        self._sock.settimeout(2)
+        self._sock.settimeout(10)
         self._message = Message.Message(sock=self._sock)
         self._expectedMsgId = 1
         self._receivedMsgQte = 0
@@ -20,37 +20,39 @@ class Client:
         self._message.sendMessage(message, address, port)
         
     def receiveMessage(self):
-        data, _, _ = self._message.receiveMessage(self._serverPort)
-        
-        with open(name + '.txt', 'wb') as f:
-            while True:
-                if data["code"] == 3:  # verifica se a transmissão acabou
-                    print("End of transmission")
-                    break
-                
-                elif data["code"] == 2:  # verifica se são dados
-                    if data["id"] == self._expectedMsgId:
-                        # Recebeu na ordem
-                        print("Received in order")
-                        self._receivedMsgQte += 1
-                        self._expectedMsgId += 1
-                    elif data["id"] < self._expectedMsgId:
-                        # Chegou atrasado
-                        print("Received out of order (late)")
-                        self._lostMsgQte += 1
-                    else:
-                        # Perdeu ou chegou fora de ordem
-                        print("Lost or out of order")
-                        self._lostMsgQte += data["id"] - self._expectedMsgId
-                        self._outOfOrderMsgQte += 1
-                        self._expectedMsgId = data["id"] + 1
+        try:
+            data, _, _ = self._message.receiveMessage(self._serverPort)
+            
+            with open(name + '.txt', 'wb') as f:
+                while True:
                     
-                    msg = data["message"]
-                    f.write(msg)
-
-                data, _, _ = self._message.receiveMessage(self._serverPort)
-                
-        f.close()
+                    if data["code"] == 3:  # verifica se a transmissão acabou
+                        print("End of transmission")
+                        break
+                    
+                    elif data["code"] == 2:  # verifica se são dados
+                        if data["id"] == self._expectedMsgId:
+                            # Recebeu na ordem
+                            print("Received in order with ID = ", data["id"])
+                            self._receivedMsgQte += 1
+                            self._expectedMsgId += 1
+                        elif data["id"] < self._expectedMsgId:
+                            # Chegou atrasado
+                            print("Received out of order (late) with ID = ", data["id"])
+                            self._lostMsgQte += 1
+                        else:
+                            # Perdeu ou chegou fora de ordem
+                            print("Lost or out of order with ID = ", data["id"])
+                            self._lostMsgQte += data["id"] - self._expectedMsgId
+                            self._outOfOrderMsgQte += 1
+                            self._expectedMsgId = data["id"] + 1
+                        msg = data["message"]
+                        f.write(msg)
+                        
+                    data, _, _ = self._message.receiveMessage(self._serverPort)
+                f.close()
+        except TypeError:
+            print("Type error")
     
     def close(self):
         self._sock.close()
