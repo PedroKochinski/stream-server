@@ -1,7 +1,6 @@
 import Message
 import socket
-import time
-import struct
+from pydub import AudioSegment
 from random import randint
 
 serverPort = 4501
@@ -92,18 +91,22 @@ def main():
         server.receiveMessage() # fica escutando ate algum host conectar
         if(len(server.getAddressList())):
             break
+    from pydub import AudioSegment
     i = 0
-    with open('shrekScript.txt', "rb") as f:
+    with open('1minuto.mp3', "rb") as audio_file:
         while True:
-            contents = f.read(2048) # le 2048 bytes do arquivo
-            if len(contents)<=0: # verifica se acabou o arquivo
+            audio_data = audio_file.read(34000)  # Lê 1024 bytes do arquivo MP3
+            print(len(audio_data))
+            if len(audio_data) <= 0:  # Verifica se acabou o arquivo
                 break
-            i+=1
-            server.receiveMessage() # escuta até dar timeout
-            print("sending with ID = ", i)
+            i += 1
+            server.receiveMessage()  # Escuta até dar timeout
+            print("sending with ID =", i)
             number = randint(0, 100)
-            if(number >= 20):
-                server.sendMessageToAll(contents, 2, i) # envia o conteudo para todos os hosts da lista
+            # if number >= 20:
+            server.sendMessageToAll(audio_data, 2, i)  # Envia o conteúdo para todos os hosts da lista
+
+    audio_file.close()
     server.sendMessageToAll("End of transmission", 3, i+1) # indica para todos os hosts da lista que a transmissao acabou
     print("Total messages sent: ", i+1)
     server.close()

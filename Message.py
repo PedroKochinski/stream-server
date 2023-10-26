@@ -26,9 +26,11 @@ class Message:
 
     def receiveMessage(self, port):
         try:
-            data, (recvAddr, recvPort) = self._sock.recvfrom(4096)  # buffer size is 2048 bytes
-            res = pickle.loads(data)
-            return res, recvAddr, recvPort
+            while True:
+                data, (recvAddr, recvPort) = self._sock.recvfrom(35000)  # buffer size is 2048 bytes
+                res = pickle.loads(data)
+                print(len(res["message"]))
+                return res, recvAddr, recvPort
         except socket.timeout:
             print("Timed Out")
 
