@@ -17,6 +17,7 @@ class Server:
         self._message = Message.Message(sock=self._sock)
         self._addressList = []
         self._portList = []
+        self.msgId = 0
     
     def __str__(self):
         return str(self.___dict__)
@@ -51,7 +52,7 @@ class Server:
             msgDict = {
                 "message": b"Accepting connection",
                 "code": 1,
-                "id": 1
+                "id": self.msgId
             }
             
             if recvAddr not in self._addressList and msgCode == 1:
@@ -66,14 +67,14 @@ class Server:
         except TypeError:
             print("Type Error")
             
-    def sendMessageToAll(self, message, code=2, msgId=1):
+    def sendMessageToAll(self, message, code=2):
         for i in range(len(self._addressList)):
             msgDict = {
                 "message": message,
                 "code": code,
-                "id": msgId
+                "id": self.msgId
             }
-            
+            print("sending with ID =", self.msgId)
             self._message.sendMessage(msgDict, self._addressList[i], self._portList[i])
 
     def close(self):
@@ -92,23 +93,21 @@ def main():
         if(len(server.getAddressList())):
             break
     from pydub import AudioSegment
-    i = 0
-    with open('1minuto.mp3', "rb") as audio_file:
+    with open('brasil.mp3', "rb") as audio_file:
         while True:
             audio_data = audio_file.read(34000)  # Lê 1024 bytes do arquivo MP3
             print(len(audio_data))
             if len(audio_data) <= 0:  # Verifica se acabou o arquivo
                 break
-            i += 1
+            server.msgId += 1
             server.receiveMessage()  # Escuta até dar timeout
-            print("sending with ID =", i)
             number = randint(0, 100)
             # if number >= 20:
-            server.sendMessageToAll(audio_data, 2, i)  # Envia o conteúdo para todos os hosts da lista
+            server.sendMessageToAll(audio_data, 2)  # Envia o conteúdo para todos os hosts da lista
 
     audio_file.close()
-    server.sendMessageToAll("End of transmission", 3, i+1) # indica para todos os hosts da lista que a transmissao acabou
-    print("Total messages sent: ", i+1)
+    server.sendMessageToAll("End of transmission", 3, server.msgId+1) # indica para todos os hosts da lista que a transmissao acabou
+    print("Total messages sent: ", server.msgId+1)
     server.close()
         
 if __name__ == "__main__":

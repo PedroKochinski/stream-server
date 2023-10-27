@@ -39,7 +39,11 @@ class Client:
             data, _, _ = self._message.receiveMessage(self._serverPort)
             audio_segments = []
             while True:
-                if data["code"] == 3:  # Check if the transmission has ended
+                if data["code"] == 1: # Check if the message was accepted
+                    self._expectedMsgId = data["id"] + 1                    
+                    print("Connected")
+                
+                elif data["code"] == 3:  # Check if the transmission has ended
                     print("End of transmission")
                     self.state = 1  # Set the state to stop audio playback
                     break
@@ -56,7 +60,7 @@ class Client:
                         self._lostMsgQte += 1
                     else:
                         # Lost or out of order
-                        print("Lost or out of order with ID =", data["id"])
+                        print("Lost or out of order with ID =", data["id"], " Expected = ", self._expectedMsgId)
                         self._lostMsgQte += data["id"] - self._expectedMsgId
                         self._outOfOrderMsgQte += 1
                         self._expectedMsgId = data["id"] + 1

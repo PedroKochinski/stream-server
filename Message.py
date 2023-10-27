@@ -1,5 +1,4 @@
 import socket
-import ast
 import pickle
 
 """
