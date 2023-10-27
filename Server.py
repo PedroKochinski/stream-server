@@ -93,7 +93,7 @@ def main():
         if(len(server.getAddressList())):
             break
     from pydub import AudioSegment
-    with open('brasil.mp3', "rb") as audio_file:
+    with open('1minuto.mp3', "rb") as audio_file:
         while True:
             audio_data = audio_file.read(34000)  # Lê 1024 bytes do arquivo MP3
             print(len(audio_data))
@@ -102,12 +102,12 @@ def main():
             server.msgId += 1
             server.receiveMessage()  # Escuta até dar timeout
             number = randint(0, 100)
-            # if number >= 20:
-            server.sendMessageToAll(audio_data, 2)  # Envia o conteúdo para todos os hosts da lista
+            if number >= 20:
+                server.sendMessageToAll(audio_data, 2)  # Envia o conteúdo para todos os hosts da lista
 
     audio_file.close()
-    server.sendMessageToAll("End of transmission", 3, server.msgId+1) # indica para todos os hosts da lista que a transmissao acabou
-    print("Total messages sent: ", server.msgId+1)
+    server.sendMessageToAll("End of transmission", 3) # indica para todos os hosts da lista que a transmissao acabou
+    print("Total messages sent: ", server.msgId)
     server.close()
         
 if __name__ == "__main__":
