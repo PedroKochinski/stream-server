@@ -1,6 +1,7 @@
 import Message
 import socket
-from pydub import AudioSegment
+import threading
+import time
 from random import randint
 
 serverPort = 4501
@@ -8,16 +9,17 @@ serverPort = 4501
 
 class Server:
     def __init__(self, port):
-        rate = input("Intervalo de tempo (em segundos): ")
+        self.bitRate = float(input("Intervalo de tempo (em segundos): "))
         self._port = port
         self._ip = socket.gethostbyname(socket.gethostname())
         self._sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        self._sock.settimeout(float(rate))
         self._sock.bind((self._ip, self._port))
+        self._sock.settimeout(10)
         self._message = Message.Message(sock=self._sock)
         self._addressList = []
         self._portList = []
         self.msgId = 0
+        self.state = 0
     
     def __str__(self):
         return str(self.___dict__)
@@ -80,32 +82,54 @@ class Server:
     def close(self):
         self._sock.close()
     
+    def receiveMsgThread(self):
+        while True:
+            self.receiveMessage()
+            if(self.state == 1):
+                print("finished")
+                break
+    
+    def sendMsgThread(self):
+        while True:
+            if(len(self._addressList) > 0):
+                with open('1minuto.mp3', "rb") as audio_file:
+                    while True:
+                        audio_data = audio_file.read(34000)  # Lê 1024 bytes do arquivo MP3
+                        print(len(audio_data))
+                        time.sleep(self.bitRate)
+                        if len(audio_data) <= 0:  # Verifica se acabou o arquivo
+                            break
+                        self.msgId += 1
+                        number = randint(0, 100)
+                        if number >= 20:
+                            self.sendMessageToAll(audio_data, 2)  # Envia o conteúdo para todos os hosts da lista
+
+                audio_file.close()
+                print("No more transmission")
+                self.state = 1
+                break
+
+    def startThreads(self):
+        # Create and start the receive audio thread
+        receiveMsgThread = threading.Thread(target=self.receiveMsgThread)
+        receiveMsgThread.start()
+
+        # Create and start the play audio thread
+        sendMsgThread = threading.Thread(target=self.sendMsgThread)
+        sendMsgThread.start()
+
+        # Wait for both threads to finish
+        receiveMsgThread.join()
+        sendMsgThread.join() 
+
 def main():
     # Create a server object
     server = Server(serverPort)
 
     print(f"UDP Streaming Server in {server.getIp()}:{server.getPort()}")
     
-    print("listening....")
-
-    while True:
-        server.receiveMessage() # fica escutando ate algum host conectar
-        if(len(server.getAddressList())):
-            break
-    from pydub import AudioSegment
-    with open('1minuto.mp3', "rb") as audio_file:
-        while True:
-            audio_data = audio_file.read(34000)  # Lê 1024 bytes do arquivo MP3
-            print(len(audio_data))
-            if len(audio_data) <= 0:  # Verifica se acabou o arquivo
-                break
-            server.msgId += 1
-            server.receiveMessage()  # Escuta até dar timeout
-            number = randint(0, 100)
-            if number >= 20:
-                server.sendMessageToAll(audio_data, 2)  # Envia o conteúdo para todos os hosts da lista
-
-    audio_file.close()
+    server.startThreads()
+    
     server.sendMessageToAll("End of transmission", 3) # indica para todos os hosts da lista que a transmissao acabou
     print("Total messages sent: ", server.msgId)
     server.close()

@@ -13,7 +13,7 @@ class Client:
     def __init__(self, port):
         self._serverPort = port
         self._sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        self._sock.settimeout(10)
+        self._sock.settimeout(5)
         self._message = Message.Message(sock=self._sock)
         self._expectedMsgId = 1
         self._receivedMsgQte = 0
@@ -40,11 +40,13 @@ class Client:
             audio_segments = []
             while True:
                 if data["code"] == 1: # Check if the message was accepted
-                    self._expectedMsgId = data["id"] + 1                    
+                    self._expectedMsgId = data["id"] + 1    
+                    self._receivedMsgQte += 1                
                     print("Connected")
                 
                 elif data["code"] == 3:  # Check if the transmission has ended
                     print("End of transmission")
+                    self._receivedMsgQte += 1                
                     self.state = 1  # Set the state to stop audio playback
                     break
 
