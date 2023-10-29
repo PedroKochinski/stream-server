@@ -1,106 +1,126 @@
 import socket
-import Message
+from Message import Message
 from pydub import AudioSegment
 from pydub.playback import play
 import io
 import threading
 from queue import Queue
 
-serverIP = input("Digite o IP do servidor: ")
+# Input the server's IP address and set the server port
+serverIP = input("Enter the server's IP: ")
 serverPort = 4501
 
 class Client:
     def __init__(self, port):
-        self._serverPort = port
-        self._sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        self._sock.settimeout(5)
-        self._message = Message.Message(sock=self._sock)
-        self._expectedMsgId = 1
-        self._receivedMsgQte = 0
-        self._lostMsgQte = 0
-        self._outOfOrderMsgQte = 0
-        self.audio_buffer = Queue()  # Use a Queue for a non-blocking buffer
-        self.buffer_threshold = 5  # Adjust the buffer threshold as needed
-        self.state = 0
+        # Initialize the client with necessary attributes
+        self.serverPort = port
+        self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        self.sock.settimeout(10)
+        self.message = Message(sock=self.sock)
+        self.expectedMsgId = 0 # Expected message ID
+        self.receivedMsgQte = 0  # Count of received messages
+        self.lostMsgCounter = 0  # Count of lost messages
+        self.audio_buffer = Queue()
+        self.buffer_threshold = 5
+        self.state = 0  # State 0: Active, 1: Finished
 
     def sendMessage(self, message, address, port):
-        self._message.sendMessage(message, address, port)
+        # Send a message to the specified address and port
+        self.message.sendMessage(message, address, port)
 
-    def play_buffer(self):
+    def playBuffer(self):
+        # Play audio from the buffer while the client is active or the buffer is not empty
         while self.state == 0 or not self.audio_buffer.empty():
             if not self.audio_buffer.empty():
-                full_audio = AudioSegment.empty()
+                full_audio = AudioSegment.empty() # Create an empty audio segment
                 while not self.audio_buffer.empty():
-                    full_audio += self.audio_buffer.get()
-                play(full_audio)
+                    full_audio += self.audio_buffer.get() # Get all segments from the buffer and concatenate them
+                play(full_audio) # Play the full audio segment
 
-    def receive_audio_thread(self):
+    def receiveAudioThread(self):
         try:
-            data, _, _ = self._message.receiveMessage(self._serverPort)
-            audio_segments = []
-            while True:
-                if data["code"] == 1: # Check if the message was accepted
-                    self._expectedMsgId = data["id"] + 1    
-                    self._receivedMsgQte += 1                
-                    print("Connected")
-                
-                elif data["code"] == 3:  # Check if the transmission has ended
-                    print("End of transmission")
-                    self._receivedMsgQte += 1                
-                    self.state = 1  # Set the state to stop audio playback
-                    break
+            data, _, _ = self.message.receiveMessage(self.serverPort)
+            audioSegments = []
 
-                elif data["code"] == 2:  # Check if it's audio data
-                    if data["id"] == self._expectedMsgId:
+            while True:
+                code, id, msg = data["code"], data["id"], data["message"]
+
+                if code == 1:
+                    # Connection established
+                    self.expectedMsgId = id + 1
+                    print("Connected")
+                elif code == 3:
+                    # End of transmission
+                    print("End of transmission")
+                    self.receivedMsgQte += 1
+                    self.state = 1
+                elif code == 2:
+                    if id == self.expectedMsgId:
                         # Received in order
-                        print("Received in order with ID =", data["id"])
-                        self._receivedMsgQte += 1
-                        self._expectedMsgId += 1
-                    elif data["id"] < self._expectedMsgId:
+                        self.receivedMsgQte += 1
+                        self.expectedMsgId += 1
+                    elif id < self.expectedMsgId:
                         # Received out of order (late)
-                        print("Received out of order (late) with ID =", data["id"])
-                        self._lostMsgQte += 1
+                        print("Received out of order (late) with ID =", id)
+                        self.lostMsgCounter += 1
                     else:
                         # Lost or out of order
-                        print("Lost or out of order with ID =", data["id"], " Expected = ", self._expectedMsgId)
-                        self._lostMsgQte += data["id"] - self._expectedMsgId
-                        self._outOfOrderMsgQte += 1
-                        self._expectedMsgId = data["id"] + 1
+                        print("Lost or out of order with ID =", id, " Expected =", self.expectedMsgId)
+                        self.lostMsgCounter += id - self.expectedMsgId
+                        self.lostMsgCounter += 1
+                        self.expectedMsgId = id + 1
+
                     msg = data["message"]
                     try:
-                        audio_segment = AudioSegment.from_mp3(io.BytesIO(msg))
-                        audio_segments.append(audio_segment)
+                        audioSegment = AudioSegment.from_mp3(io.BytesIO(msg))
+                        audioSegments.append(audioSegment)
                     except IndexError:
                         print("Error: No audio data found in the message.")
 
-                    if len(audio_segments) >= self.buffer_threshold:
-                        for segment in audio_segments:
+                    if len(audioSegments) >= self.buffer_threshold:
+                        for segment in audioSegments:
                             self.audio_buffer.put(segment)
-                        audio_segments = []
+                        audioSegments = []
+                    elif len(audioSegments) == 0:
+                        # Pre-buffer a few segments when the buffer is empty
+                        data, _, _ = self.message.receiveMessage(self.serverPort)
+                        continue
 
-                data, _, _ = self._message.receiveMessage(self._serverPort)
+                data, _, _ = self.message.receiveMessage(self.serverPort)
 
+        except KeyboardInterrupt:
+            print("Keyboard Interrupt")
+            self.state = 1
+            self.close()
+            exit(1)
         except TypeError:
             print("Type error")
 
-    def play_audio_thread(self):
-        self.play_buffer()  # Start playing audio
+        
+        
 
-    def start_threads(self):
-        # Create and start the receive audio thread
-        receive_audio_thread = threading.Thread(target=self.receive_audio_thread)
-        receive_audio_thread.start()
+    def playAudioThread(self):
+        # Start playing audio from the buffer
+        self.playBuffer()
 
-        # Create and start the play audio thread
-        play_audio_thread = threading.Thread(target=self.play_audio_thread)
-        play_audio_thread.start()
-
-        # Wait for both threads to finish
-        receive_audio_thread.join()
-        play_audio_thread.join()
+    def startThreads(self):
+        # Create and start receive audio and play audio threads
+        receiveAudioThread = threading.Thread(target=self.receiveAudioThread)
+        playAudioThread = threading.Thread(target=self.playAudioThread)
+        receiveAudioThread.start()
+        playAudioThread.start()
+        receiveAudioThread.join()
+        playAudioThread.join()
 
     def close(self):
-        self._sock.close()
+        # Close the client socket
+        msgDict = {
+            "message": "Request to disconnect",
+            "code": 4,
+            "id": 1
+        }
+        self.sendMessage(msgDict, serverIP, serverPort)
+        self.sock.close()
 
 def main():
     client = Client(serverPort)
@@ -112,13 +132,12 @@ def main():
     }
 
     print("Sending message...")
-    client.sendMessage(msgDict, serverIP, serverPort)  # Request a connection to the server
-
-    client.start_threads()  # Start the receive and play audio threads
-
-    print("Received Messages: ", client._receivedMsgQte)
-    print("Lost Messages: ", client._lostMsgQte)
-    print("Out of Order Messages: ", client._outOfOrderMsgQte)
+    client.sendMessage(msgDict, serverIP, serverPort)
+    client.startThreads()
+    print("Received", client.receivedMsgQte, "messages")
+    print("Lost", client.lostMsgCounter, "messages")
+    print("Out of order", client.lostMsgCounter, "messages")
+    print("Finished")
     client.close()
 
 if __name__ == "__main__":

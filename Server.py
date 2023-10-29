@@ -6,105 +6,97 @@ from random import randint
 
 serverPort = 4501
 
-
+# Create a Server class to handle audio transmission
 class Server:
     def __init__(self, port):
-        self.bitRate = float(input("Intervalo de tempo (em segundos): "))
-        self._port = port
-        self._ip = socket.gethostbyname(socket.gethostname())
-        self._sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        self._sock.bind((self._ip, self._port))
-        self._sock.settimeout(10)
-        self._message = Message.Message(sock=self._sock)
-        self._addressList = []
-        self._portList = []
+        self.bitRate = float(input("Time interval (in seconds): "))
+        self.port = port
+        self.ip = socket.gethostbyname(socket.gethostname())
+        self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        self.sock.bind((self.ip, self.port))
+        self.sock.settimeout(5)
+        self.message = Message.Message(sock=self.sock)
+        self.addressList = []
+        self.portList = []
         self.msgId = 0
         self.state = 0
-    
-    def __str__(self):
-        return str(self.___dict__)
-    
-    def getPort(self):
-        return self._port
-    
-    def getIp(self):
-        return self._ip
-    
+
     def sendMessage(self, message, address, port):
-        self._message.sendMessage(message, address, port)
-        
-    def getAddressList(self):
-        return self._addressList
+        # Send a message to a specific address and port
+        self.message.sendMessage(message, address, port)
 
     def receiveMessage(self):
         try:
-            recvMsg, recvAddr, recvPort = self._message.receiveMessage(self._port)
-            
-            msg = recvMsg['message']
-            msgCode = recvMsg['code']
+            recvMsg, recvAddr, recvPort = self.message.receiveMessage(self.port)
 
-            print()
+            msg, code = recvMsg["message"], recvMsg["code"]
+
             print("Message received from address:", recvAddr)
             print("Port:", recvPort)
             print("Message:", msg)
-            print("Code:", msgCode)
-
-            print()
+            print("Code:", code)
 
             msgDict = {
                 "message": b"Accepting connection",
                 "code": 1,
                 "id": self.msgId
             }
-            
-            if recvAddr not in self._addressList and msgCode == 1:
-                self._addressList.append(recvAddr)
-                self._portList.append(recvPort)
-                print("Address list:", self._addressList)
-                print("Port list:", self._portList)
+
+            if recvAddr not in self.addressList and code == 1:
+                self.addressList.append(recvAddr)
+                self.portList.append(recvPort)
+                print("Address list:", self.addressList)
+                print("Port list:", self.portList)
             else:
-                print("Address already in list.")
-            self._message.sendMessage(msgDict, recvAddr, recvPort)
-        
+                print("Address already in the list.")
+            self.message.sendMessage(msgDict, recvAddr, recvPort)
+
+        except KeyboardInterrupt:
+            print("Keyboard Interrupt")
+            self.state = 1
+            self.sendMessageToAll("End of transmission", 3)
+            print("Total messages sent: ", self.msgId)
+            self.close()
+            exit(1)
+
         except TypeError:
             print("Type Error")
-            
-    def sendMessageToAll(self, message, code=2):
-        for i in range(len(self._addressList)):
+
+    def sendMessageToAll(self, message, code):
+        self.msgId += 1
+        for i in range(len(self.addressList)):
             msgDict = {
                 "message": message,
                 "code": code,
                 "id": self.msgId
             }
-            print("sending with ID =", self.msgId)
-            self._message.sendMessage(msgDict, self._addressList[i], self._portList[i])
+            print("Sending with ID =", self.msgId)
+            self.message.sendMessage(msgDict, self.addressList[i], self.portList[i])
 
     def close(self):
-        self._sock.close()
-    
+        self.sock.close()
+
     def receiveMsgThread(self):
         while True:
             self.receiveMessage()
-            if(self.state == 1):
-                print("finished")
+            if self.state == 1:
+                print("Finished")
                 break
-    
+
     def sendMsgThread(self):
         while True:
-            if(len(self._addressList) > 0):
-                with open('1minuto.mp3', "rb") as audio_file:
+            if len(self.addressList) > 0:
+                with open('1minuto.mp3', "rb") as audioFile:
                     while True:
-                        audio_data = audio_file.read(34000)  # Lê 1024 bytes do arquivo MP3
-                        print(len(audio_data))
+                        audioData = audioFile.read(30000)
+                        print(len(audioData))
                         time.sleep(self.bitRate)
-                        if len(audio_data) <= 0:  # Verifica se acabou o arquivo
+                        if len(audioData) <= 0:
                             break
-                        self.msgId += 1
-                        number = randint(0, 100)
-                        if number >= 20:
-                            self.sendMessageToAll(audio_data, 2)  # Envia o conteúdo para todos os hosts da lista
+                        # number = randint(0, 100) 
+                        self.sendMessageToAll(audioData, 2)
 
-                audio_file.close()
+                audioFile.close()
                 print("No more transmission")
                 self.state = 1
                 break
@@ -112,28 +104,22 @@ class Server:
     def startThreads(self):
         # Create and start the receive audio thread
         receiveMsgThread = threading.Thread(target=self.receiveMsgThread)
-        receiveMsgThread.start()
-
-        # Create and start the play audio thread
         sendMsgThread = threading.Thread(target=self.sendMsgThread)
+        receiveMsgThread.start()
         sendMsgThread.start()
-
-        # Wait for both threads to finish
         receiveMsgThread.join()
-        sendMsgThread.join() 
+        sendMsgThread.join()
 
 def main():
-    # Create a server object
     server = Server(serverPort)
 
-    print(f"UDP Streaming Server in {server.getIp()}:{server.getPort()}")
+    print(f"UDP Streaming Server in {server.ip}:{server.port}")
     
     server.startThreads()
     
-    server.sendMessageToAll("End of transmission", 3) # indica para todos os hosts da lista que a transmissao acabou
+    server.sendMessageToAll("End of transmission", 3)
     print("Total messages sent: ", server.msgId)
     server.close()
-        
+
 if __name__ == "__main__":
     main()
-    
