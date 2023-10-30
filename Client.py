@@ -39,66 +39,74 @@ class Client:
 
     def receiveAudioThread(self):
         try:
-            data, _, _ = self.message.receiveMessage(self.serverPort)
-            audioSegments = []
+            tmp = self.message.receiveMessage(self.serverPort)
+            if (tmp != None):
+                data, _, _ = tmp
 
-            while True:
-                code, id, msg = data["code"], data["id"], data["message"]
+                audioSegments = []
 
-                if code == 1:
-                    # Connection established
-                    self.expectedMsgId = id + 1
-                    print("Connected")
-                elif code == 3:
-                    # End of transmission
-                    print("End of transmission")
-                    self.receivedMsgQte += 1
-                    self.state = 1
-                elif code == 2:
-                    if id == self.expectedMsgId:
-                        # Received in order
-                        self.receivedMsgQte += 1
-                        self.expectedMsgId += 1
-                    elif id < self.expectedMsgId:
-                        # Received out of order (late)
-                        print("Received out of order (late) with ID =", id)
-                        self.lostMsgCounter += 1
-                    else:
-                        # Lost or out of order
-                        print("Lost or out of order with ID =", id, " Expected =", self.expectedMsgId)
-                        self.lostMsgCounter += id - self.expectedMsgId
-                        self.lostMsgCounter += 1
+                while True:
+                    code, id, msg = data["code"], data["id"], data["message"]
+
+                    if code == 1:
+                        # Connection established
                         self.expectedMsgId = id + 1
+                        print("Connected")
+                    elif code == 3:
+                        # End of transmission
+                        print("End of transmission")
+                        self.receivedMsgQte += 1
+                        self.state = 1
+                    elif code == 2:
+                        if id == self.expectedMsgId:
+                            # Received in order
+                            self.receivedMsgQte += 1
+                            self.expectedMsgId += 1
+                        elif id < self.expectedMsgId:
+                            # Received out of order (late)
+                            print("Received out of order (late) with ID =", id)
+                            self.lostMsgCounter += 1
+                        else:
+                            # Lost or out of order
+                            print("Lost or out of order with ID =", id, " Expected =", self.expectedMsgId)
+                            self.lostMsgCounter += id - self.expectedMsgId
+                            self.lostMsgCounter += 1
+                            self.expectedMsgId = id + 1
 
-                    msg = data["message"]
-                    try:
-                        audioSegment = AudioSegment.from_mp3(io.BytesIO(msg))
-                        audioSegments.append(audioSegment)
-                    except IndexError:
-                        print("Error: No audio data found in the message.")
+                        msg = data["message"]
+                        try:
+                            audioSegment = AudioSegment.from_mp3(io.BytesIO(msg))
+                            audioSegments.append(audioSegment)
+                        except IndexError:
+                            print("Error: No audio data found in the message.")
 
-                    if len(audioSegments) >= self.buffer_threshold:
-                        for segment in audioSegments:
-                            self.audio_buffer.put(segment)
-                        audioSegments = []
-                    elif len(audioSegments) == 0:
-                        # Pre-buffer a few segments when the buffer is empty
-                        data, _, _ = self.message.receiveMessage(self.serverPort)
-                        continue
+                        if len(audioSegments) >= self.buffer_threshold:
+                            for segment in audioSegments:
+                                self.audio_buffer.put(segment)
+                            audioSegments = []
+                        elif len(audioSegments) == 0:
+                            # Pre-buffer a few segments when the buffer is empty
+                            tmp = self.message.receiveMessage(self.serverPort)
+                            if (tmp != None):
+                                data, _, _ = tmp
+                            continue
 
-                data, _, _ = self.message.receiveMessage(self.serverPort)
+                    tmp = self.message.receiveMessage(self.serverPort)
+                    if (tmp != None):
+                        data, _, _ = tmp
+
+        except socket.timeout:
+            print("Timed Out")
+
+        except socket.error as e:
+            print("Error while receiving message:", e)
 
         except KeyboardInterrupt:
             print("Keyboard Interrupt")
             self.state = 1
             self.close()
             exit(1)
-        except TypeError:
-            print("Type error")
-
         
-        
-
     def playAudioThread(self):
         # Start playing audio from the buffer
         self.playBuffer()

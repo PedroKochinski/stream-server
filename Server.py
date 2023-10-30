@@ -26,9 +26,11 @@ class Server:
         self.message.sendMessage(message, address, port)
 
     def receiveMessage(self):
-        try:
-            recvMsg, recvAddr, recvPort = self.message.receiveMessage(self.port)
-
+        # recvMsg, recvAddr, recvPort = self.message.receiveMessage(self.port)
+        tmp = self.message.receiveMessage(self.port)
+        if(tmp != None):
+            recvMsg, recvAddr, recvPort = tmp
+            
             msg, code = recvMsg["message"], recvMsg["code"]
 
             print("Message received from address:", recvAddr)
@@ -51,17 +53,6 @@ class Server:
                 print("Address already in the list.")
             self.message.sendMessage(msgDict, recvAddr, recvPort)
 
-        except KeyboardInterrupt:
-            print("Keyboard Interrupt")
-            self.state = 1
-            self.sendMessageToAll("End of transmission", 3)
-            print("Total messages sent: ", self.msgId)
-            self.close()
-            exit(1)
-
-        except TypeError:
-            print("Type Error")
-
     def sendMessageToAll(self, message, code):
         self.msgId += 1
         for i in range(len(self.addressList)):
@@ -78,28 +69,42 @@ class Server:
 
     def receiveMsgThread(self):
         while True:
-            self.receiveMessage()
-            if self.state == 1:
-                print("Finished")
-                break
+            try:
+                self.receiveMessage()
+                if self.state == 1:
+                    print("Finished")
+                    break
+            except socket.timeout:
+                print("Timed Out")
+                if self.state == 1:
+                    print("Finished")
+                    break
+
+            except socket.error as e:
+                print("Error while receiving message:", e)
+                if self.state == 1:
+                    print("Finished")
+                    break
 
     def sendMsgThread(self):
-        while True:
-            if len(self.addressList) > 0:
-                with open('1minuto.mp3', "rb") as audioFile:
-                    while True:
-                        audioData = audioFile.read(30000)
-                        print(len(audioData))
-                        time.sleep(self.bitRate)
-                        if len(audioData) <= 0:
-                            break
-                        # number = randint(0, 100) 
-                        self.sendMessageToAll(audioData, 2)
-
-                audioFile.close()
-                print("No more transmission")
-                self.state = 1
-                break
+            while True:
+                try:
+                    if len(self.addressList) > 0:
+                        with open('1minuto.mp3', "rb") as audioFile:
+                            while True:
+                                audioData = audioFile.read(30000)
+                                print(len(audioData))
+                                time.sleep(self.bitRate)
+                                if len(audioData) <= 0:
+                                    break
+                                # number = randint(0, 100) 
+                                self.sendMessageToAll(audioData, 2)
+                        audioFile.close()
+                        print("No more transmission")
+                        self.state = 1
+                        break
+                except socket.error as e:
+                    print("Error while sending message:", e)
 
     def startThreads(self):
         # Create and start the receive audio thread
@@ -114,12 +119,13 @@ def main():
     server = Server(serverPort)
 
     print(f"UDP Streaming Server in {server.ip}:{server.port}")
-    
+
     server.startThreads()
-    
+
     server.sendMessageToAll("End of transmission", 3)
     print("Total messages sent: ", server.msgId)
     server.close()
+
 
 if __name__ == "__main__":
     main()
