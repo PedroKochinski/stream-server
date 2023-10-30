@@ -1,0 +1,791 @@
+2023-10-30 16:45:22,324 - INFO - UDP Streaming Server in 10.254.221.81:4501
+2023-10-30 16:46:06,293 - INFO - Message received from address: 10.254.221.81
+2023-10-30 16:46:06,298 - INFO - Port: 37511
+2023-10-30 16:46:06,304 - INFO - Message: Request to connect
+2023-10-30 16:46:06,309 - INFO - Code: 1
+2023-10-30 16:46:06,314 - INFO - Address list: ['10.254.221.81']
+2023-10-30 16:46:06,314 - INFO - Port list: [37511]
+2023-10-30 16:46:06,314 - INFO - Sending a response with ID = 0
+2023-10-30 16:46:06,315 - INFO - Audio data length: 30000
+2023-10-30 16:46:06,815 - INFO - Sending to all clients a message with ID = 1
+2023-10-30 16:46:06,816 - INFO - Audio data length: 30000
+2023-10-30 16:46:07,316 - INFO - Sending to all clients a message with ID = 2
+2023-10-30 16:46:07,316 - INFO - Audio data length: 30000
+2023-10-30 16:46:07,817 - INFO - Sending to all clients a message with ID = 3
+2023-10-30 16:46:07,817 - INFO - Audio data length: 30000
+2023-10-30 16:46:08,318 - INFO - Sending to all clients a message with ID = 4
+2023-10-30 16:46:08,318 - INFO - Audio data length: 30000
+2023-10-30 16:46:08,819 - INFO - Sending to all clients a message with ID = 5
+2023-10-30 16:46:08,819 - INFO - Audio data length: 30000
+2023-10-30 16:46:09,319 - INFO - Sending to all clients a message with ID = 6
+2023-10-30 16:46:09,320 - INFO - Audio data length: 30000
+2023-10-30 16:46:09,820 - INFO - Sending to all clients a message with ID = 7
+2023-10-30 16:46:09,821 - INFO - Audio data length: 30000
+2023-10-30 16:46:10,322 - INFO - Sending to all clients a message with ID = 8
+2023-10-30 16:46:10,322 - INFO - Audio data length: 30000
+2023-10-30 16:46:10,823 - INFO - Sending to all clients a message with ID = 9
+2023-10-30 16:46:10,824 - INFO - Audio data length: 30000
+2023-10-30 16:46:11,325 - INFO - Sending to all clients a message with ID = 10
+2023-10-30 16:46:11,325 - INFO - Audio data length: 30000
+2023-10-30 16:46:11,826 - INFO - Sending to all clients a message with ID = 11
+2023-10-30 16:46:11,827 - INFO - Audio data length: 30000
+2023-10-30 16:46:12,328 - INFO - Sending to all clients a message with ID = 12
+2023-10-30 16:46:12,329 - INFO - Audio data length: 30000
+2023-10-30 16:46:12,830 - INFO - Sending to all clients a message with ID = 13
+2023-10-30 16:46:12,830 - INFO - Audio data length: 30000
+2023-10-30 16:46:13,331 - INFO - Sending to all clients a message with ID = 14
+2023-10-30 16:46:13,332 - INFO - Audio data length: 30000
+2023-10-30 16:46:13,832 - INFO - Sending to all clients a message with ID = 15
+2023-10-30 16:46:13,833 - INFO - Audio data length: 30000
+2023-10-30 16:46:14,334 - INFO - Sending to all clients a message with ID = 16
+2023-10-30 16:46:14,334 - INFO - Audio data length: 30000
+2023-10-30 16:46:14,835 - INFO - Sending to all clients a message with ID = 17
+2023-10-30 16:46:14,835 - INFO - Audio data length: 30000
+2023-10-30 16:46:15,336 - INFO - Sending to all clients a message with ID = 18
+2023-10-30 16:46:15,337 - INFO - Audio data length: 30000
+2023-10-30 16:46:15,837 - INFO - Sending to all clients a message with ID = 19
+2023-10-30 16:46:15,838 - INFO - Audio data length: 30000
+2023-10-30 16:46:16,338 - INFO - Sending to all clients a message with ID = 20
+2023-10-30 16:46:16,339 - INFO - Audio data length: 30000
+2023-10-30 16:46:16,840 - INFO - Sending to all clients a message with ID = 21
+2023-10-30 16:46:16,841 - INFO - Audio data length: 30000
+2023-10-30 16:46:17,342 - INFO - Sending to all clients a message with ID = 22
+2023-10-30 16:46:17,342 - INFO - Audio data length: 30000
+2023-10-30 16:46:17,843 - INFO - Sending to all clients a message with ID = 23
+2023-10-30 16:46:17,844 - INFO - Audio data length: 30000
+2023-10-30 16:46:18,344 - INFO - Sending to all clients a message with ID = 24
+2023-10-30 16:46:18,345 - INFO - Audio data length: 30000
+2023-10-30 16:46:18,846 - INFO - Sending to all clients a message with ID = 25
+2023-10-30 16:46:18,846 - INFO - Audio data length: 30000
+2023-10-30 16:46:19,347 - INFO - Sending to all clients a message with ID = 26
+2023-10-30 16:46:19,348 - INFO - Audio data length: 30000
+2023-10-30 16:46:19,849 - INFO - Sending to all clients a message with ID = 27
+2023-10-30 16:46:19,849 - INFO - Audio data length: 30000
+2023-10-30 16:46:20,350 - INFO - Sending to all clients a message with ID = 28
+2023-10-30 16:46:20,351 - INFO - Audio data length: 30000
+2023-10-30 16:46:20,852 - INFO - Sending to all clients a message with ID = 29
+2023-10-30 16:46:20,852 - INFO - Audio data length: 30000
+2023-10-30 16:46:21,353 - INFO - Sending to all clients a message with ID = 30
+2023-10-30 16:46:21,353 - INFO - Audio data length: 30000
+2023-10-30 16:46:21,854 - INFO - Sending to all clients a message with ID = 31
+2023-10-30 16:46:21,855 - INFO - Audio data length: 30000
+2023-10-30 16:46:22,356 - INFO - Sending to all clients a message with ID = 32
+2023-10-30 16:46:22,356 - INFO - Audio data length: 30000
+2023-10-30 16:46:22,857 - INFO - Sending to all clients a message with ID = 33
+2023-10-30 16:46:22,858 - INFO - Audio data length: 30000
+2023-10-30 16:46:23,359 - INFO - Sending to all clients a message with ID = 34
+2023-10-30 16:46:23,359 - INFO - Audio data length: 30000
+2023-10-30 16:46:23,860 - INFO - Sending to all clients a message with ID = 35
+2023-10-30 16:46:23,861 - INFO - Audio data length: 30000
+2023-10-30 16:46:24,361 - INFO - Sending to all clients a message with ID = 36
+2023-10-30 16:46:24,362 - INFO - Audio data length: 30000
+2023-10-30 16:46:24,863 - INFO - Sending to all clients a message with ID = 37
+2023-10-30 16:46:24,864 - INFO - Audio data length: 30000
+2023-10-30 16:46:25,364 - INFO - Sending to all clients a message with ID = 38
+2023-10-30 16:46:25,365 - INFO - Audio data length: 30000
+2023-10-30 16:46:25,866 - INFO - Sending to all clients a message with ID = 39
+2023-10-30 16:46:25,867 - INFO - Audio data length: 30000
+2023-10-30 16:46:26,367 - INFO - Sending to all clients a message with ID = 40
+2023-10-30 16:46:26,368 - INFO - Audio data length: 30000
+2023-10-30 16:46:26,869 - INFO - Sending to all clients a message with ID = 41
+2023-10-30 16:46:26,869 - INFO - Audio data length: 30000
+2023-10-30 16:46:27,370 - INFO - Sending to all clients a message with ID = 42
+2023-10-30 16:46:27,371 - INFO - Audio data length: 30000
+2023-10-30 16:46:27,872 - INFO - Sending to all clients a message with ID = 43
+2023-10-30 16:46:27,872 - INFO - Audio data length: 30000
+2023-10-30 16:46:28,373 - INFO - Sending to all clients a message with ID = 44
+2023-10-30 16:46:28,373 - INFO - Audio data length: 30000
+2023-10-30 16:46:28,874 - INFO - Sending to all clients a message with ID = 45
+2023-10-30 16:46:28,874 - INFO - Audio data length: 30000
+2023-10-30 16:46:29,375 - INFO - Sending to all clients a message with ID = 46
+2023-10-30 16:46:29,376 - INFO - Audio data length: 30000
+2023-10-30 16:46:29,877 - INFO - Sending to all clients a message with ID = 47
+2023-10-30 16:46:29,877 - INFO - Audio data length: 30000
+2023-10-30 16:46:30,378 - INFO - Sending to all clients a message with ID = 48
+2023-10-30 16:46:30,379 - INFO - Audio data length: 30000
+2023-10-30 16:46:30,880 - INFO - Sending to all clients a message with ID = 49
+2023-10-30 16:46:30,880 - INFO - Audio data length: 30000
+2023-10-30 16:46:31,381 - INFO - Sending to all clients a message with ID = 50
+2023-10-30 16:46:31,381 - INFO - Audio data length: 30000
+2023-10-30 16:46:31,882 - INFO - Sending to all clients a message with ID = 51
+2023-10-30 16:46:31,883 - INFO - Audio data length: 30000
+2023-10-30 16:46:32,384 - INFO - Sending to all clients a message with ID = 52
+2023-10-30 16:46:32,384 - INFO - Audio data length: 30000
+2023-10-30 16:46:32,885 - INFO - Sending to all clients a message with ID = 53
+2023-10-30 16:46:32,885 - INFO - Audio data length: 30000
+2023-10-30 16:46:33,386 - INFO - Sending to all clients a message with ID = 54
+2023-10-30 16:46:33,387 - INFO - Audio data length: 30000
+2023-10-30 16:46:33,888 - INFO - Sending to all clients a message with ID = 55
+2023-10-30 16:46:33,888 - INFO - Audio data length: 30000
+2023-10-30 16:46:34,389 - INFO - Sending to all clients a message with ID = 56
+2023-10-30 16:46:34,390 - INFO - Audio data length: 30000
+2023-10-30 16:46:34,891 - INFO - Sending to all clients a message with ID = 57
+2023-10-30 16:46:34,891 - INFO - Audio data length: 30000
+2023-10-30 16:46:35,392 - INFO - Sending to all clients a message with ID = 58
+2023-10-30 16:46:35,393 - INFO - Audio data length: 30000
+2023-10-30 16:46:35,894 - INFO - Sending to all clients a message with ID = 59
+2023-10-30 16:46:35,894 - INFO - Audio data length: 30000
+2023-10-30 16:46:36,395 - INFO - Sending to all clients a message with ID = 60
+2023-10-30 16:46:36,396 - INFO - Audio data length: 30000
+2023-10-30 16:46:36,897 - INFO - Sending to all clients a message with ID = 61
+2023-10-30 16:46:36,897 - INFO - Audio data length: 30000
+2023-10-30 16:46:37,398 - INFO - Sending to all clients a message with ID = 62
+2023-10-30 16:46:37,399 - INFO - Audio data length: 30000
+2023-10-30 16:46:37,900 - INFO - Sending to all clients a message with ID = 63
+2023-10-30 16:46:37,900 - INFO - Audio data length: 30000
+2023-10-30 16:46:38,401 - INFO - Sending to all clients a message with ID = 64
+2023-10-30 16:46:38,402 - INFO - Audio data length: 30000
+2023-10-30 16:46:38,903 - INFO - Sending to all clients a message with ID = 65
+2023-10-30 16:46:38,903 - INFO - Audio data length: 30000
+2023-10-30 16:46:39,404 - INFO - Sending to all clients a message with ID = 66
+2023-10-30 16:46:39,405 - INFO - Audio data length: 30000
+2023-10-30 16:46:39,906 - INFO - Sending to all clients a message with ID = 67
+2023-10-30 16:46:39,906 - INFO - Audio data length: 30000
+2023-10-30 16:46:40,407 - INFO - Sending to all clients a message with ID = 68
+2023-10-30 16:46:40,408 - INFO - Audio data length: 30000
+2023-10-30 16:46:40,908 - INFO - Sending to all clients a message with ID = 69
+2023-10-30 16:46:40,909 - INFO - Audio data length: 30000
+2023-10-30 16:46:41,410 - INFO - Sending to all clients a message with ID = 70
+2023-10-30 16:46:41,410 - INFO - Audio data length: 30000
+2023-10-30 16:46:41,911 - INFO - Sending to all clients a message with ID = 71
+2023-10-30 16:46:41,912 - INFO - Audio data length: 30000
+2023-10-30 16:46:42,413 - INFO - Sending to all clients a message with ID = 72
+2023-10-30 16:46:42,413 - INFO - Audio data length: 30000
+2023-10-30 16:46:42,914 - INFO - Sending to all clients a message with ID = 73
+2023-10-30 16:46:42,915 - INFO - Audio data length: 30000
+2023-10-30 16:46:43,416 - INFO - Sending to all clients a message with ID = 74
+2023-10-30 16:46:43,416 - INFO - Audio data length: 30000
+2023-10-30 16:46:43,917 - INFO - Sending to all clients a message with ID = 75
+2023-10-30 16:46:43,918 - INFO - Audio data length: 30000
+2023-10-30 16:46:44,419 - INFO - Sending to all clients a message with ID = 76
+2023-10-30 16:46:44,419 - INFO - Audio data length: 30000
+2023-10-30 16:46:44,920 - INFO - Sending to all clients a message with ID = 77
+2023-10-30 16:46:44,921 - INFO - Audio data length: 30000
+2023-10-30 16:46:45,421 - INFO - Sending to all clients a message with ID = 78
+2023-10-30 16:46:45,422 - INFO - Audio data length: 30000
+2023-10-30 16:46:45,923 - INFO - Sending to all clients a message with ID = 79
+2023-10-30 16:46:45,923 - INFO - Audio data length: 30000
+2023-10-30 16:46:46,424 - INFO - Sending to all clients a message with ID = 80
+2023-10-30 16:46:46,425 - INFO - Audio data length: 30000
+2023-10-30 16:46:46,926 - INFO - Sending to all clients a message with ID = 81
+2023-10-30 16:46:46,927 - INFO - Audio data length: 30000
+2023-10-30 16:46:47,428 - INFO - Sending to all clients a message with ID = 82
+2023-10-30 16:46:47,428 - INFO - Audio data length: 30000
+2023-10-30 16:46:47,929 - INFO - Sending to all clients a message with ID = 83
+2023-10-30 16:46:47,930 - INFO - Audio data length: 30000
+2023-10-30 16:46:48,431 - INFO - Sending to all clients a message with ID = 84
+2023-10-30 16:46:48,431 - INFO - Audio data length: 30000
+2023-10-30 16:46:48,932 - INFO - Sending to all clients a message with ID = 85
+2023-10-30 16:46:48,933 - INFO - Audio data length: 30000
+2023-10-30 16:46:49,434 - INFO - Sending to all clients a message with ID = 86
+2023-10-30 16:46:49,434 - INFO - Audio data length: 30000
+2023-10-30 16:46:49,935 - INFO - Sending to all clients a message with ID = 87
+2023-10-30 16:46:49,936 - INFO - Audio data length: 30000
+2023-10-30 16:46:50,436 - INFO - Sending to all clients a message with ID = 88
+2023-10-30 16:46:50,437 - INFO - Audio data length: 30000
+2023-10-30 16:46:50,938 - INFO - Sending to all clients a message with ID = 89
+2023-10-30 16:46:50,939 - INFO - Audio data length: 30000
+2023-10-30 16:46:51,440 - INFO - Sending to all clients a message with ID = 90
+2023-10-30 16:46:51,440 - INFO - Audio data length: 30000
+2023-10-30 16:46:51,941 - INFO - Sending to all clients a message with ID = 91
+2023-10-30 16:46:51,942 - INFO - Audio data length: 30000
+2023-10-30 16:46:52,443 - INFO - Sending to all clients a message with ID = 92
+2023-10-30 16:46:52,443 - INFO - Audio data length: 30000
+2023-10-30 16:46:52,944 - INFO - Sending to all clients a message with ID = 93
+2023-10-30 16:46:52,945 - INFO - Audio data length: 30000
+2023-10-30 16:46:53,445 - INFO - Sending to all clients a message with ID = 94
+2023-10-30 16:46:53,446 - INFO - Audio data length: 30000
+2023-10-30 16:46:53,947 - INFO - Sending to all clients a message with ID = 95
+2023-10-30 16:46:53,948 - INFO - Audio data length: 30000
+2023-10-30 16:46:54,448 - INFO - Sending to all clients a message with ID = 96
+2023-10-30 16:46:54,449 - INFO - Audio data length: 30000
+2023-10-30 16:46:54,950 - INFO - Sending to all clients a message with ID = 97
+2023-10-30 16:46:54,950 - INFO - Audio data length: 30000
+2023-10-30 16:46:55,451 - INFO - Sending to all clients a message with ID = 98
+2023-10-30 16:46:55,452 - INFO - Audio data length: 30000
+2023-10-30 16:46:55,953 - INFO - Sending to all clients a message with ID = 99
+2023-10-30 16:46:55,953 - INFO - Audio data length: 30000
+2023-10-30 16:46:56,454 - INFO - Sending to all clients a message with ID = 100
+2023-10-30 16:46:56,455 - INFO - Audio data length: 30000
+2023-10-30 16:46:56,956 - INFO - Sending to all clients a message with ID = 101
+2023-10-30 16:46:56,956 - INFO - Audio data length: 30000
+2023-10-30 16:46:57,457 - INFO - Sending to all clients a message with ID = 102
+2023-10-30 16:46:57,457 - INFO - Audio data length: 30000
+2023-10-30 16:46:57,958 - INFO - Sending to all clients a message with ID = 103
+2023-10-30 16:46:57,959 - INFO - Audio data length: 30000
+2023-10-30 16:46:58,460 - INFO - Sending to all clients a message with ID = 104
+2023-10-30 16:46:58,460 - INFO - Audio data length: 30000
+2023-10-30 16:46:58,961 - INFO - Sending to all clients a message with ID = 105
+2023-10-30 16:46:58,961 - INFO - Audio data length: 30000
+2023-10-30 16:46:59,462 - INFO - Sending to all clients a message with ID = 106
+2023-10-30 16:46:59,463 - INFO - Audio data length: 30000
+2023-10-30 16:46:59,964 - INFO - Sending to all clients a message with ID = 107
+2023-10-30 16:46:59,964 - INFO - Audio data length: 30000
+2023-10-30 16:47:00,465 - INFO - Sending to all clients a message with ID = 108
+2023-10-30 16:47:00,465 - INFO - Audio data length: 30000
+2023-10-30 16:47:00,966 - INFO - Sending to all clients a message with ID = 109
+2023-10-30 16:47:00,967 - INFO - Audio data length: 30000
+2023-10-30 16:47:01,468 - INFO - Sending to all clients a message with ID = 110
+2023-10-30 16:47:01,468 - INFO - Audio data length: 30000
+2023-10-30 16:47:01,969 - INFO - Sending to all clients a message with ID = 111
+2023-10-30 16:47:01,969 - INFO - Audio data length: 30000
+2023-10-30 16:47:02,470 - INFO - Sending to all clients a message with ID = 112
+2023-10-30 16:47:02,471 - INFO - Audio data length: 30000
+2023-10-30 16:47:02,972 - INFO - Sending to all clients a message with ID = 113
+2023-10-30 16:47:02,973 - INFO - Audio data length: 30000
+2023-10-30 16:47:03,473 - INFO - Sending to all clients a message with ID = 114
+2023-10-30 16:47:03,474 - INFO - Audio data length: 30000
+2023-10-30 16:47:03,975 - INFO - Sending to all clients a message with ID = 115
+2023-10-30 16:47:03,976 - INFO - Audio data length: 30000
+2023-10-30 16:47:04,476 - INFO - Sending to all clients a message with ID = 116
+2023-10-30 16:47:04,477 - INFO - Audio data length: 30000
+2023-10-30 16:47:04,978 - INFO - Sending to all clients a message with ID = 117
+2023-10-30 16:47:04,979 - INFO - Audio data length: 30000
+2023-10-30 16:47:05,479 - INFO - Sending to all clients a message with ID = 118
+2023-10-30 16:47:05,480 - INFO - Audio data length: 30000
+2023-10-30 16:47:05,981 - INFO - Sending to all clients a message with ID = 119
+2023-10-30 16:47:05,981 - INFO - Audio data length: 30000
+2023-10-30 16:47:06,482 - INFO - Sending to all clients a message with ID = 120
+2023-10-30 16:47:06,483 - INFO - Audio data length: 30000
+2023-10-30 16:47:06,984 - INFO - Sending to all clients a message with ID = 121
+2023-10-30 16:47:06,984 - INFO - Audio data length: 30000
+2023-10-30 16:47:07,485 - INFO - Sending to all clients a message with ID = 122
+2023-10-30 16:47:07,486 - INFO - Audio data length: 30000
+2023-10-30 16:47:07,986 - INFO - Sending to all clients a message with ID = 123
+2023-10-30 16:47:07,987 - INFO - Audio data length: 30000
+2023-10-30 16:47:08,488 - INFO - Sending to all clients a message with ID = 124
+2023-10-30 16:47:08,488 - INFO - Audio data length: 30000
+2023-10-30 16:47:08,989 - INFO - Sending to all clients a message with ID = 125
+2023-10-30 16:47:08,989 - INFO - Audio data length: 30000
+2023-10-30 16:47:09,490 - INFO - Sending to all clients a message with ID = 126
+2023-10-30 16:47:09,491 - INFO - Audio data length: 30000
+2023-10-30 16:47:09,992 - INFO - Sending to all clients a message with ID = 127
+2023-10-30 16:47:09,992 - INFO - Audio data length: 30000
+2023-10-30 16:47:10,493 - INFO - Sending to all clients a message with ID = 128
+2023-10-30 16:47:10,494 - INFO - Audio data length: 30000
+2023-10-30 16:47:10,994 - INFO - Sending to all clients a message with ID = 129
+2023-10-30 16:47:10,995 - INFO - Audio data length: 30000
+2023-10-30 16:47:11,496 - INFO - Sending to all clients a message with ID = 130
+2023-10-30 16:47:11,496 - INFO - Audio data length: 30000
+2023-10-30 16:47:11,997 - INFO - Sending to all clients a message with ID = 131
+2023-10-30 16:47:11,998 - INFO - Audio data length: 30000
+2023-10-30 16:47:12,499 - INFO - Sending to all clients a message with ID = 132
+2023-10-30 16:47:12,499 - INFO - Audio data length: 30000
+2023-10-30 16:47:13,000 - INFO - Sending to all clients a message with ID = 133
+2023-10-30 16:47:13,001 - INFO - Audio data length: 30000
+2023-10-30 16:47:13,502 - INFO - Sending to all clients a message with ID = 134
+2023-10-30 16:47:13,502 - INFO - Audio data length: 30000
+2023-10-30 16:47:14,003 - INFO - Sending to all clients a message with ID = 135
+2023-10-30 16:47:14,004 - INFO - Audio data length: 30000
+2023-10-30 16:47:14,504 - INFO - Sending to all clients a message with ID = 136
+2023-10-30 16:47:14,505 - INFO - Audio data length: 30000
+2023-10-30 16:47:15,005 - INFO - Sending to all clients a message with ID = 137
+2023-10-30 16:47:15,006 - INFO - Audio data length: 30000
+2023-10-30 16:47:15,507 - INFO - Sending to all clients a message with ID = 138
+2023-10-30 16:47:15,507 - INFO - Audio data length: 30000
+2023-10-30 16:47:16,008 - INFO - Sending to all clients a message with ID = 139
+2023-10-30 16:47:16,009 - INFO - Audio data length: 30000
+2023-10-30 16:47:16,510 - INFO - Sending to all clients a message with ID = 140
+2023-10-30 16:47:16,510 - INFO - Audio data length: 30000
+2023-10-30 16:47:17,011 - INFO - Sending to all clients a message with ID = 141
+2023-10-30 16:47:17,012 - INFO - Audio data length: 30000
+2023-10-30 16:47:17,513 - INFO - Sending to all clients a message with ID = 142
+2023-10-30 16:47:17,513 - INFO - Audio data length: 30000
+2023-10-30 16:47:18,014 - INFO - Sending to all clients a message with ID = 143
+2023-10-30 16:47:18,015 - INFO - Audio data length: 30000
+2023-10-30 16:47:18,516 - INFO - Sending to all clients a message with ID = 144
+2023-10-30 16:47:18,516 - INFO - Audio data length: 30000
+2023-10-30 16:47:19,017 - INFO - Sending to all clients a message with ID = 145
+2023-10-30 16:47:19,017 - INFO - Audio data length: 30000
+2023-10-30 16:47:19,518 - INFO - Sending to all clients a message with ID = 146
+2023-10-30 16:47:19,519 - INFO - Audio data length: 30000
+2023-10-30 16:47:20,020 - INFO - Sending to all clients a message with ID = 147
+2023-10-30 16:47:20,020 - INFO - Audio data length: 30000
+2023-10-30 16:47:20,521 - INFO - Sending to all clients a message with ID = 148
+2023-10-30 16:47:20,522 - INFO - Audio data length: 30000
+2023-10-30 16:47:21,022 - INFO - Sending to all clients a message with ID = 149
+2023-10-30 16:47:21,023 - INFO - Audio data length: 30000
+2023-10-30 16:47:21,524 - INFO - Sending to all clients a message with ID = 150
+2023-10-30 16:47:21,525 - INFO - Audio data length: 30000
+2023-10-30 16:47:22,026 - INFO - Sending to all clients a message with ID = 151
+2023-10-30 16:47:22,026 - INFO - Audio data length: 30000
+2023-10-30 16:47:22,527 - INFO - Sending to all clients a message with ID = 152
+2023-10-30 16:47:22,527 - INFO - Audio data length: 30000
+2023-10-30 16:47:23,028 - INFO - Sending to all clients a message with ID = 153
+2023-10-30 16:47:23,029 - INFO - Audio data length: 30000
+2023-10-30 16:47:23,530 - INFO - Sending to all clients a message with ID = 154
+2023-10-30 16:47:23,530 - INFO - Audio data length: 30000
+2023-10-30 16:47:24,031 - INFO - Sending to all clients a message with ID = 155
+2023-10-30 16:47:24,032 - INFO - Audio data length: 30000
+2023-10-30 16:47:24,533 - INFO - Sending to all clients a message with ID = 156
+2023-10-30 16:47:24,533 - INFO - Audio data length: 30000
+2023-10-30 16:47:25,034 - INFO - Sending to all clients a message with ID = 157
+2023-10-30 16:47:25,034 - INFO - Audio data length: 30000
+2023-10-30 16:47:25,535 - INFO - Sending to all clients a message with ID = 158
+2023-10-30 16:47:25,536 - INFO - Audio data length: 30000
+2023-10-30 16:47:26,037 - INFO - Sending to all clients a message with ID = 159
+2023-10-30 16:47:26,037 - INFO - Audio data length: 30000
+2023-10-30 16:47:26,538 - INFO - Sending to all clients a message with ID = 160
+2023-10-30 16:47:26,539 - INFO - Audio data length: 30000
+2023-10-30 16:47:27,040 - INFO - Sending to all clients a message with ID = 161
+2023-10-30 16:47:27,040 - INFO - Audio data length: 30000
+2023-10-30 16:47:27,541 - INFO - Sending to all clients a message with ID = 162
+2023-10-30 16:47:27,541 - INFO - Audio data length: 30000
+2023-10-30 16:47:28,042 - INFO - Sending to all clients a message with ID = 163
+2023-10-30 16:47:28,043 - INFO - Audio data length: 30000
+2023-10-30 16:47:28,544 - INFO - Sending to all clients a message with ID = 164
+2023-10-30 16:47:28,544 - INFO - Audio data length: 30000
+2023-10-30 16:47:29,045 - INFO - Sending to all clients a message with ID = 165
+2023-10-30 16:47:29,046 - INFO - Audio data length: 30000
+2023-10-30 16:47:29,546 - INFO - Sending to all clients a message with ID = 166
+2023-10-30 16:47:29,547 - INFO - Audio data length: 30000
+2023-10-30 16:47:30,048 - INFO - Sending to all clients a message with ID = 167
+2023-10-30 16:47:30,048 - INFO - Audio data length: 30000
+2023-10-30 16:47:30,549 - INFO - Sending to all clients a message with ID = 168
+2023-10-30 16:47:30,549 - INFO - Audio data length: 30000
+2023-10-30 16:47:31,050 - INFO - Sending to all clients a message with ID = 169
+2023-10-30 16:47:31,051 - INFO - Audio data length: 30000
+2023-10-30 16:47:31,552 - INFO - Sending to all clients a message with ID = 170
+2023-10-30 16:47:31,552 - INFO - Audio data length: 30000
+2023-10-30 16:47:32,053 - INFO - Sending to all clients a message with ID = 171
+2023-10-30 16:47:32,053 - INFO - Audio data length: 30000
+2023-10-30 16:47:32,554 - INFO - Sending to all clients a message with ID = 172
+2023-10-30 16:47:32,555 - INFO - Audio data length: 30000
+2023-10-30 16:47:33,056 - INFO - Sending to all clients a message with ID = 173
+2023-10-30 16:47:33,056 - INFO - Audio data length: 30000
+2023-10-30 16:47:33,557 - INFO - Sending to all clients a message with ID = 174
+2023-10-30 16:47:33,557 - INFO - Audio data length: 30000
+2023-10-30 16:47:34,058 - INFO - Sending to all clients a message with ID = 175
+2023-10-30 16:47:34,059 - INFO - Audio data length: 30000
+2023-10-30 16:47:34,560 - INFO - Sending to all clients a message with ID = 176
+2023-10-30 16:47:34,560 - INFO - Audio data length: 30000
+2023-10-30 16:47:35,061 - INFO - Sending to all clients a message with ID = 177
+2023-10-30 16:47:35,061 - INFO - Audio data length: 30000
+2023-10-30 16:47:35,562 - INFO - Sending to all clients a message with ID = 178
+2023-10-30 16:47:35,563 - INFO - Audio data length: 30000
+2023-10-30 16:47:36,064 - INFO - Sending to all clients a message with ID = 179
+2023-10-30 16:47:36,064 - INFO - Audio data length: 30000
+2023-10-30 16:47:36,565 - INFO - Sending to all clients a message with ID = 180
+2023-10-30 16:47:36,565 - INFO - Audio data length: 30000
+2023-10-30 16:47:37,066 - INFO - Sending to all clients a message with ID = 181
+2023-10-30 16:47:37,067 - INFO - Audio data length: 30000
+2023-10-30 16:47:37,568 - INFO - Sending to all clients a message with ID = 182
+2023-10-30 16:47:37,568 - INFO - Audio data length: 30000
+2023-10-30 16:47:38,069 - INFO - Sending to all clients a message with ID = 183
+2023-10-30 16:47:38,069 - INFO - Audio data length: 30000
+2023-10-30 16:47:38,570 - INFO - Sending to all clients a message with ID = 184
+2023-10-30 16:47:38,571 - INFO - Audio data length: 30000
+2023-10-30 16:47:39,072 - INFO - Sending to all clients a message with ID = 185
+2023-10-30 16:47:39,072 - INFO - Audio data length: 30000
+2023-10-30 16:47:39,573 - INFO - Sending to all clients a message with ID = 186
+2023-10-30 16:47:39,574 - INFO - Audio data length: 30000
+2023-10-30 16:47:40,075 - INFO - Sending to all clients a message with ID = 187
+2023-10-30 16:47:40,075 - INFO - Audio data length: 30000
+2023-10-30 16:47:40,576 - INFO - Sending to all clients a message with ID = 188
+2023-10-30 16:47:40,577 - INFO - Audio data length: 30000
+2023-10-30 16:47:41,078 - INFO - Sending to all clients a message with ID = 189
+2023-10-30 16:47:41,078 - INFO - Audio data length: 30000
+2023-10-30 16:47:41,579 - INFO - Sending to all clients a message with ID = 190
+2023-10-30 16:47:41,580 - INFO - Audio data length: 4026
+2023-10-30 16:47:42,080 - INFO - Sending to all clients a message with ID = 191
+2023-10-30 16:47:42,081 - INFO - Audio data length: 0
+2023-10-30 16:47:42,582 - INFO - No more transmission
+2023-10-30 16:47:46,389 - INFO - Finished
+2023-10-30 16:47:46,390 - INFO - Sending to all clients a message with ID = 192
+2023-10-30 16:47:46,390 - INFO - Total messages sent: 192
+2023-10-30 16:51:07,740 - INFO - UDP Streaming Server in 10.254.221.81:4501
+2023-10-30 16:51:15,844 - INFO - UDP Streaming Server in 10.254.221.81:4501
+2023-10-30 16:51:34,909 - INFO - Message received from address: 10.254.221.81
+2023-10-30 16:51:34,914 - INFO - Port: 58858
+2023-10-30 16:51:34,919 - INFO - Message: Request to connect
+2023-10-30 16:51:34,924 - INFO - Code: 1
+2023-10-30 16:51:34,930 - INFO - Address list: ['10.254.221.81']
+2023-10-30 16:51:34,930 - INFO - Port list: [58858]
+2023-10-30 16:51:34,930 - INFO - Sending a response with ID = 0
+2023-10-30 16:51:34,930 - INFO - Audio data length: 30000
+2023-10-30 16:51:35,030 - INFO - Sending to all clients a message with ID = 1
+2023-10-30 16:51:35,031 - INFO - Audio data length: 30000
+2023-10-30 16:51:35,131 - INFO - Sending to all clients a message with ID = 2
+2023-10-30 16:51:35,131 - INFO - Audio data length: 30000
+2023-10-30 16:51:35,231 - INFO - Sending to all clients a message with ID = 3
+2023-10-30 16:51:35,231 - INFO - Audio data length: 30000
+2023-10-30 16:51:35,332 - INFO - Sending to all clients a message with ID = 4
+2023-10-30 16:51:35,332 - INFO - Audio data length: 30000
+2023-10-30 16:51:35,432 - INFO - Sending to all clients a message with ID = 5
+2023-10-30 16:51:35,432 - INFO - Audio data length: 30000
+2023-10-30 16:51:35,533 - INFO - Sending to all clients a message with ID = 6
+2023-10-30 16:51:35,533 - INFO - Audio data length: 30000
+2023-10-30 16:51:35,633 - INFO - Sending to all clients a message with ID = 7
+2023-10-30 16:51:35,633 - INFO - Audio data length: 30000
+2023-10-30 16:51:35,733 - INFO - Sending to all clients a message with ID = 8
+2023-10-30 16:51:35,734 - INFO - Audio data length: 30000
+2023-10-30 16:51:35,834 - INFO - Sending to all clients a message with ID = 9
+2023-10-30 16:51:35,834 - INFO - Audio data length: 30000
+2023-10-30 16:51:35,934 - INFO - Sending to all clients a message with ID = 10
+2023-10-30 16:51:35,935 - INFO - Audio data length: 30000
+2023-10-30 16:51:36,035 - INFO - Sending to all clients a message with ID = 11
+2023-10-30 16:51:36,035 - INFO - Audio data length: 30000
+2023-10-30 16:51:36,136 - INFO - Sending to all clients a message with ID = 12
+2023-10-30 16:51:36,136 - INFO - Audio data length: 30000
+2023-10-30 16:51:36,236 - INFO - Sending to all clients a message with ID = 13
+2023-10-30 16:51:36,236 - INFO - Audio data length: 30000
+2023-10-30 16:51:36,336 - INFO - Sending to all clients a message with ID = 14
+2023-10-30 16:51:36,337 - INFO - Audio data length: 30000
+2023-10-30 16:51:36,437 - INFO - Sending to all clients a message with ID = 15
+2023-10-30 16:51:36,437 - INFO - Audio data length: 30000
+2023-10-30 16:51:36,537 - INFO - Sending to all clients a message with ID = 16
+2023-10-30 16:51:36,537 - INFO - Audio data length: 30000
+2023-10-30 16:51:36,638 - INFO - Sending to all clients a message with ID = 17
+2023-10-30 16:51:36,638 - INFO - Audio data length: 30000
+2023-10-30 16:51:36,738 - INFO - Sending to all clients a message with ID = 18
+2023-10-30 16:51:36,738 - INFO - Audio data length: 30000
+2023-10-30 16:51:36,839 - INFO - Sending to all clients a message with ID = 19
+2023-10-30 16:51:36,839 - INFO - Audio data length: 30000
+2023-10-30 16:51:36,939 - INFO - Sending to all clients a message with ID = 20
+2023-10-30 16:51:36,939 - INFO - Audio data length: 30000
+2023-10-30 16:51:37,040 - INFO - Sending to all clients a message with ID = 21
+2023-10-30 16:51:37,040 - INFO - Audio data length: 30000
+2023-10-30 16:51:37,140 - INFO - Sending to all clients a message with ID = 22
+2023-10-30 16:51:37,140 - INFO - Audio data length: 30000
+2023-10-30 16:51:37,240 - INFO - Sending to all clients a message with ID = 23
+2023-10-30 16:51:37,241 - INFO - Audio data length: 30000
+2023-10-30 16:51:37,341 - INFO - Sending to all clients a message with ID = 24
+2023-10-30 16:51:37,341 - INFO - Audio data length: 30000
+2023-10-30 16:51:37,441 - INFO - Sending to all clients a message with ID = 25
+2023-10-30 16:51:37,442 - INFO - Audio data length: 30000
+2023-10-30 16:51:37,542 - INFO - Sending to all clients a message with ID = 26
+2023-10-30 16:51:37,542 - INFO - Audio data length: 30000
+2023-10-30 16:51:37,643 - INFO - Sending to all clients a message with ID = 27
+2023-10-30 16:51:37,643 - INFO - Audio data length: 30000
+2023-10-30 16:51:37,743 - INFO - Sending to all clients a message with ID = 28
+2023-10-30 16:51:37,743 - INFO - Audio data length: 30000
+2023-10-30 16:51:37,844 - INFO - Sending to all clients a message with ID = 29
+2023-10-30 16:51:37,844 - INFO - Audio data length: 30000
+2023-10-30 16:51:37,944 - INFO - Sending to all clients a message with ID = 30
+2023-10-30 16:51:37,944 - INFO - Audio data length: 30000
+2023-10-30 16:51:38,045 - INFO - Sending to all clients a message with ID = 31
+2023-10-30 16:51:38,045 - INFO - Audio data length: 30000
+2023-10-30 16:51:38,145 - INFO - Sending to all clients a message with ID = 32
+2023-10-30 16:51:38,145 - INFO - Audio data length: 30000
+2023-10-30 16:51:38,246 - INFO - Sending to all clients a message with ID = 33
+2023-10-30 16:51:38,246 - INFO - Audio data length: 30000
+2023-10-30 16:51:38,346 - INFO - Sending to all clients a message with ID = 34
+2023-10-30 16:51:38,346 - INFO - Audio data length: 30000
+2023-10-30 16:51:38,447 - INFO - Sending to all clients a message with ID = 35
+2023-10-30 16:51:38,447 - INFO - Audio data length: 30000
+2023-10-30 16:51:38,547 - INFO - Sending to all clients a message with ID = 36
+2023-10-30 16:51:38,547 - INFO - Audio data length: 30000
+2023-10-30 16:51:38,648 - INFO - Sending to all clients a message with ID = 37
+2023-10-30 16:51:38,648 - INFO - Audio data length: 30000
+2023-10-30 16:51:38,748 - INFO - Sending to all clients a message with ID = 38
+2023-10-30 16:51:38,748 - INFO - Audio data length: 30000
+2023-10-30 16:51:38,849 - INFO - Sending to all clients a message with ID = 39
+2023-10-30 16:51:38,849 - INFO - Audio data length: 30000
+2023-10-30 16:51:38,950 - INFO - Sending to all clients a message with ID = 40
+2023-10-30 16:51:38,950 - INFO - Audio data length: 30000
+2023-10-30 16:51:39,050 - INFO - Sending to all clients a message with ID = 41
+2023-10-30 16:51:39,051 - INFO - Audio data length: 30000
+2023-10-30 16:51:39,151 - INFO - Sending to all clients a message with ID = 42
+2023-10-30 16:51:39,151 - INFO - Audio data length: 30000
+2023-10-30 16:51:39,251 - INFO - Sending to all clients a message with ID = 43
+2023-10-30 16:51:39,252 - INFO - Audio data length: 30000
+2023-10-30 16:51:39,352 - INFO - Sending to all clients a message with ID = 44
+2023-10-30 16:51:39,352 - INFO - Audio data length: 30000
+2023-10-30 16:51:39,452 - INFO - Sending to all clients a message with ID = 45
+2023-10-30 16:51:39,453 - INFO - Audio data length: 30000
+2023-10-30 16:51:39,553 - INFO - Sending to all clients a message with ID = 46
+2023-10-30 16:51:39,553 - INFO - Audio data length: 30000
+2023-10-30 16:51:39,653 - INFO - Sending to all clients a message with ID = 47
+2023-10-30 16:51:39,654 - INFO - Audio data length: 30000
+2023-10-30 16:51:39,754 - INFO - Sending to all clients a message with ID = 48
+2023-10-30 16:51:39,754 - INFO - Audio data length: 30000
+2023-10-30 16:51:39,854 - INFO - Sending to all clients a message with ID = 49
+2023-10-30 16:51:39,855 - INFO - Audio data length: 30000
+2023-10-30 16:51:39,955 - INFO - Sending to all clients a message with ID = 50
+2023-10-30 16:51:39,955 - INFO - Audio data length: 30000
+2023-10-30 16:51:40,056 - INFO - Sending to all clients a message with ID = 51
+2023-10-30 16:51:40,056 - INFO - Audio data length: 30000
+2023-10-30 16:51:40,156 - INFO - Sending to all clients a message with ID = 52
+2023-10-30 16:51:40,156 - INFO - Audio data length: 30000
+2023-10-30 16:51:40,257 - INFO - Sending to all clients a message with ID = 53
+2023-10-30 16:51:40,257 - INFO - Audio data length: 30000
+2023-10-30 16:51:40,357 - INFO - Sending to all clients a message with ID = 54
+2023-10-30 16:51:40,358 - INFO - Audio data length: 30000
+2023-10-30 16:51:40,458 - INFO - Sending to all clients a message with ID = 55
+2023-10-30 16:51:40,458 - INFO - Audio data length: 30000
+2023-10-30 16:51:40,559 - INFO - Sending to all clients a message with ID = 56
+2023-10-30 16:51:40,559 - INFO - Audio data length: 30000
+2023-10-30 16:51:40,659 - INFO - Sending to all clients a message with ID = 57
+2023-10-30 16:51:40,659 - INFO - Audio data length: 30000
+2023-10-30 16:51:40,760 - INFO - Sending to all clients a message with ID = 58
+2023-10-30 16:51:40,760 - INFO - Audio data length: 30000
+2023-10-30 16:51:40,860 - INFO - Sending to all clients a message with ID = 59
+2023-10-30 16:51:40,860 - INFO - Audio data length: 30000
+2023-10-30 16:51:40,961 - INFO - Sending to all clients a message with ID = 60
+2023-10-30 16:51:40,961 - INFO - Audio data length: 30000
+2023-10-30 16:51:41,061 - INFO - Sending to all clients a message with ID = 61
+2023-10-30 16:51:41,061 - INFO - Audio data length: 30000
+2023-10-30 16:51:41,161 - INFO - Sending to all clients a message with ID = 62
+2023-10-30 16:51:41,162 - INFO - Audio data length: 30000
+2023-10-30 16:51:41,262 - INFO - Sending to all clients a message with ID = 63
+2023-10-30 16:51:41,262 - INFO - Audio data length: 30000
+2023-10-30 16:51:41,363 - INFO - Sending to all clients a message with ID = 64
+2023-10-30 16:51:41,363 - INFO - Audio data length: 30000
+2023-10-30 16:51:41,463 - INFO - Sending to all clients a message with ID = 65
+2023-10-30 16:51:41,463 - INFO - Audio data length: 30000
+2023-10-30 16:51:41,564 - INFO - Sending to all clients a message with ID = 66
+2023-10-30 16:51:41,564 - INFO - Audio data length: 30000
+2023-10-30 16:51:41,664 - INFO - Sending to all clients a message with ID = 67
+2023-10-30 16:51:41,664 - INFO - Audio data length: 30000
+2023-10-30 16:51:41,765 - INFO - Sending to all clients a message with ID = 68
+2023-10-30 16:51:41,765 - INFO - Audio data length: 30000
+2023-10-30 16:51:41,865 - INFO - Sending to all clients a message with ID = 69
+2023-10-30 16:51:41,865 - INFO - Audio data length: 30000
+2023-10-30 16:51:41,966 - INFO - Sending to all clients a message with ID = 70
+2023-10-30 16:51:41,966 - INFO - Audio data length: 30000
+2023-10-30 16:51:42,066 - INFO - Sending to all clients a message with ID = 71
+2023-10-30 16:51:42,066 - INFO - Audio data length: 30000
+2023-10-30 16:51:42,167 - INFO - Sending to all clients a message with ID = 72
+2023-10-30 16:51:42,167 - INFO - Audio data length: 30000
+2023-10-30 16:51:42,267 - INFO - Sending to all clients a message with ID = 73
+2023-10-30 16:51:42,267 - INFO - Audio data length: 30000
+2023-10-30 16:51:42,368 - INFO - Sending to all clients a message with ID = 74
+2023-10-30 16:51:42,368 - INFO - Audio data length: 30000
+2023-10-30 16:51:42,468 - INFO - Sending to all clients a message with ID = 75
+2023-10-30 16:51:42,468 - INFO - Audio data length: 30000
+2023-10-30 16:51:42,568 - INFO - Sending to all clients a message with ID = 76
+2023-10-30 16:51:42,569 - INFO - Audio data length: 30000
+2023-10-30 16:51:42,669 - INFO - Sending to all clients a message with ID = 77
+2023-10-30 16:51:42,669 - INFO - Audio data length: 30000
+2023-10-30 16:51:42,769 - INFO - Sending to all clients a message with ID = 78
+2023-10-30 16:51:42,770 - INFO - Audio data length: 30000
+2023-10-30 16:51:42,870 - INFO - Sending to all clients a message with ID = 79
+2023-10-30 16:51:42,870 - INFO - Audio data length: 30000
+2023-10-30 16:51:42,970 - INFO - Sending to all clients a message with ID = 80
+2023-10-30 16:51:42,971 - INFO - Audio data length: 30000
+2023-10-30 16:51:43,071 - INFO - Sending to all clients a message with ID = 81
+2023-10-30 16:51:43,071 - INFO - Audio data length: 30000
+2023-10-30 16:51:43,171 - INFO - Sending to all clients a message with ID = 82
+2023-10-30 16:51:43,172 - INFO - Audio data length: 30000
+2023-10-30 16:51:43,272 - INFO - Sending to all clients a message with ID = 83
+2023-10-30 16:51:43,272 - INFO - Audio data length: 30000
+2023-10-30 16:51:43,372 - INFO - Sending to all clients a message with ID = 84
+2023-10-30 16:51:43,373 - INFO - Audio data length: 30000
+2023-10-30 16:51:43,473 - INFO - Sending to all clients a message with ID = 85
+2023-10-30 16:51:43,473 - INFO - Audio data length: 30000
+2023-10-30 16:51:43,573 - INFO - Sending to all clients a message with ID = 86
+2023-10-30 16:51:43,574 - INFO - Audio data length: 30000
+2023-10-30 16:51:43,674 - INFO - Sending to all clients a message with ID = 87
+2023-10-30 16:51:43,674 - INFO - Audio data length: 30000
+2023-10-30 16:51:43,775 - INFO - Sending to all clients a message with ID = 88
+2023-10-30 16:51:43,775 - INFO - Audio data length: 30000
+2023-10-30 16:51:43,875 - INFO - Sending to all clients a message with ID = 89
+2023-10-30 16:51:43,875 - INFO - Audio data length: 30000
+2023-10-30 16:51:43,975 - INFO - Sending to all clients a message with ID = 90
+2023-10-30 16:51:43,976 - INFO - Audio data length: 30000
+2023-10-30 16:51:44,076 - INFO - Sending to all clients a message with ID = 91
+2023-10-30 16:51:44,076 - INFO - Audio data length: 30000
+2023-10-30 16:51:44,176 - INFO - Sending to all clients a message with ID = 92
+2023-10-30 16:51:44,177 - INFO - Audio data length: 30000
+2023-10-30 16:51:44,277 - INFO - Sending to all clients a message with ID = 93
+2023-10-30 16:51:44,277 - INFO - Audio data length: 30000
+2023-10-30 16:51:44,377 - INFO - Sending to all clients a message with ID = 94
+2023-10-30 16:51:44,378 - INFO - Audio data length: 30000
+2023-10-30 16:51:44,478 - INFO - Sending to all clients a message with ID = 95
+2023-10-30 16:51:44,478 - INFO - Audio data length: 30000
+2023-10-30 16:51:44,578 - INFO - Sending to all clients a message with ID = 96
+2023-10-30 16:51:44,579 - INFO - Audio data length: 30000
+2023-10-30 16:51:44,679 - INFO - Sending to all clients a message with ID = 97
+2023-10-30 16:51:44,679 - INFO - Audio data length: 30000
+2023-10-30 16:51:44,780 - INFO - Sending to all clients a message with ID = 98
+2023-10-30 16:51:44,780 - INFO - Audio data length: 30000
+2023-10-30 16:51:44,880 - INFO - Sending to all clients a message with ID = 99
+2023-10-30 16:51:44,880 - INFO - Audio data length: 30000
+2023-10-30 16:51:44,981 - INFO - Sending to all clients a message with ID = 100
+2023-10-30 16:51:44,981 - INFO - Audio data length: 30000
+2023-10-30 16:51:45,081 - INFO - Sending to all clients a message with ID = 101
+2023-10-30 16:51:45,081 - INFO - Audio data length: 30000
+2023-10-30 16:51:45,181 - INFO - Sending to all clients a message with ID = 102
+2023-10-30 16:51:45,182 - INFO - Audio data length: 30000
+2023-10-30 16:51:45,282 - INFO - Sending to all clients a message with ID = 103
+2023-10-30 16:51:45,282 - INFO - Audio data length: 30000
+2023-10-30 16:51:45,383 - INFO - Sending to all clients a message with ID = 104
+2023-10-30 16:51:45,383 - INFO - Audio data length: 30000
+2023-10-30 16:51:45,483 - INFO - Sending to all clients a message with ID = 105
+2023-10-30 16:51:45,483 - INFO - Audio data length: 30000
+2023-10-30 16:51:45,584 - INFO - Sending to all clients a message with ID = 106
+2023-10-30 16:51:45,584 - INFO - Audio data length: 30000
+2023-10-30 16:51:45,684 - INFO - Sending to all clients a message with ID = 107
+2023-10-30 16:51:45,684 - INFO - Audio data length: 30000
+2023-10-30 16:51:45,785 - INFO - Sending to all clients a message with ID = 108
+2023-10-30 16:51:45,785 - INFO - Audio data length: 30000
+2023-10-30 16:51:45,885 - INFO - Sending to all clients a message with ID = 109
+2023-10-30 16:51:45,886 - INFO - Audio data length: 30000
+2023-10-30 16:51:45,986 - INFO - Sending to all clients a message with ID = 110
+2023-10-30 16:51:45,986 - INFO - Audio data length: 30000
+2023-10-30 16:51:46,086 - INFO - Sending to all clients a message with ID = 111
+2023-10-30 16:51:46,086 - INFO - Audio data length: 30000
+2023-10-30 16:51:46,187 - INFO - Sending to all clients a message with ID = 112
+2023-10-30 16:51:46,187 - INFO - Audio data length: 30000
+2023-10-30 16:51:46,287 - INFO - Sending to all clients a message with ID = 113
+2023-10-30 16:51:46,288 - INFO - Audio data length: 30000
+2023-10-30 16:51:46,388 - INFO - Sending to all clients a message with ID = 114
+2023-10-30 16:51:46,388 - INFO - Audio data length: 30000
+2023-10-30 16:51:46,488 - INFO - Sending to all clients a message with ID = 115
+2023-10-30 16:51:46,488 - INFO - Audio data length: 30000
+2023-10-30 16:51:46,589 - INFO - Sending to all clients a message with ID = 116
+2023-10-30 16:51:46,589 - INFO - Audio data length: 30000
+2023-10-30 16:51:46,689 - INFO - Sending to all clients a message with ID = 117
+2023-10-30 16:51:46,689 - INFO - Audio data length: 30000
+2023-10-30 16:51:46,790 - INFO - Sending to all clients a message with ID = 118
+2023-10-30 16:51:46,790 - INFO - Audio data length: 30000
+2023-10-30 16:51:46,890 - INFO - Sending to all clients a message with ID = 119
+2023-10-30 16:51:46,890 - INFO - Audio data length: 30000
+2023-10-30 16:51:46,991 - INFO - Sending to all clients a message with ID = 120
+2023-10-30 16:51:46,991 - INFO - Audio data length: 30000
+2023-10-30 16:51:47,091 - INFO - Sending to all clients a message with ID = 121
+2023-10-30 16:51:47,091 - INFO - Audio data length: 30000
+2023-10-30 16:51:47,192 - INFO - Sending to all clients a message with ID = 122
+2023-10-30 16:51:47,192 - INFO - Audio data length: 30000
+2023-10-30 16:51:47,292 - INFO - Sending to all clients a message with ID = 123
+2023-10-30 16:51:47,292 - INFO - Audio data length: 30000
+2023-10-30 16:51:47,393 - INFO - Sending to all clients a message with ID = 124
+2023-10-30 16:51:47,393 - INFO - Audio data length: 30000
+2023-10-30 16:51:47,493 - INFO - Sending to all clients a message with ID = 125
+2023-10-30 16:51:47,493 - INFO - Audio data length: 30000
+2023-10-30 16:51:47,593 - INFO - Sending to all clients a message with ID = 126
+2023-10-30 16:51:47,594 - INFO - Audio data length: 30000
+2023-10-30 16:51:47,694 - INFO - Sending to all clients a message with ID = 127
+2023-10-30 16:51:47,694 - INFO - Audio data length: 30000
+2023-10-30 16:51:47,794 - INFO - Sending to all clients a message with ID = 128
+2023-10-30 16:51:47,795 - INFO - Audio data length: 30000
+2023-10-30 16:51:47,895 - INFO - Sending to all clients a message with ID = 129
+2023-10-30 16:51:47,895 - INFO - Audio data length: 30000
+2023-10-30 16:51:47,995 - INFO - Sending to all clients a message with ID = 130
+2023-10-30 16:51:47,996 - INFO - Audio data length: 30000
+2023-10-30 16:51:48,096 - INFO - Sending to all clients a message with ID = 131
+2023-10-30 16:51:48,096 - INFO - Audio data length: 30000
+2023-10-30 16:51:48,196 - INFO - Sending to all clients a message with ID = 132
+2023-10-30 16:51:48,196 - INFO - Audio data length: 30000
+2023-10-30 16:51:48,297 - INFO - Sending to all clients a message with ID = 133
+2023-10-30 16:51:48,297 - INFO - Audio data length: 30000
+2023-10-30 16:51:48,397 - INFO - Sending to all clients a message with ID = 134
+2023-10-30 16:51:48,397 - INFO - Audio data length: 30000
+2023-10-30 16:51:48,497 - INFO - Sending to all clients a message with ID = 135
+2023-10-30 16:51:48,498 - INFO - Audio data length: 30000
+2023-10-30 16:51:48,598 - INFO - Sending to all clients a message with ID = 136
+2023-10-30 16:51:48,598 - INFO - Audio data length: 30000
+2023-10-30 16:51:48,698 - INFO - Sending to all clients a message with ID = 137
+2023-10-30 16:51:48,699 - INFO - Audio data length: 30000
+2023-10-30 16:51:48,799 - INFO - Sending to all clients a message with ID = 138
+2023-10-30 16:51:48,799 - INFO - Audio data length: 30000
+2023-10-30 16:51:48,899 - INFO - Sending to all clients a message with ID = 139
+2023-10-30 16:51:48,900 - INFO - Audio data length: 30000
+2023-10-30 16:51:49,000 - INFO - Sending to all clients a message with ID = 140
+2023-10-30 16:51:49,000 - INFO - Audio data length: 30000
+2023-10-30 16:51:49,100 - INFO - Sending to all clients a message with ID = 141
+2023-10-30 16:51:49,101 - INFO - Audio data length: 30000
+2023-10-30 16:51:49,201 - INFO - Sending to all clients a message with ID = 142
+2023-10-30 16:51:49,201 - INFO - Audio data length: 30000
+2023-10-30 16:51:49,301 - INFO - Sending to all clients a message with ID = 143
+2023-10-30 16:51:49,302 - INFO - Audio data length: 30000
+2023-10-30 16:51:49,402 - INFO - Sending to all clients a message with ID = 144
+2023-10-30 16:51:49,402 - INFO - Audio data length: 30000
+2023-10-30 16:51:49,502 - INFO - Sending to all clients a message with ID = 145
+2023-10-30 16:51:49,503 - INFO - Audio data length: 30000
+2023-10-30 16:51:49,603 - INFO - Sending to all clients a message with ID = 146
+2023-10-30 16:51:49,603 - INFO - Audio data length: 30000
+2023-10-30 16:51:49,703 - INFO - Sending to all clients a message with ID = 147
+2023-10-30 16:51:49,703 - INFO - Audio data length: 30000
+2023-10-30 16:51:49,804 - INFO - Sending to all clients a message with ID = 148
+2023-10-30 16:51:49,804 - INFO - Audio data length: 30000
+2023-10-30 16:51:49,904 - INFO - Sending to all clients a message with ID = 149
+2023-10-30 16:51:49,904 - INFO - Audio data length: 30000
+2023-10-30 16:51:50,005 - INFO - Sending to all clients a message with ID = 150
+2023-10-30 16:51:50,005 - INFO - Audio data length: 30000
+2023-10-30 16:51:50,105 - INFO - Sending to all clients a message with ID = 151
+2023-10-30 16:51:50,105 - INFO - Audio data length: 30000
+2023-10-30 16:51:50,206 - INFO - Sending to all clients a message with ID = 152
+2023-10-30 16:51:50,206 - INFO - Audio data length: 30000
+2023-10-30 16:51:50,306 - INFO - Sending to all clients a message with ID = 153
+2023-10-30 16:51:50,306 - INFO - Audio data length: 30000
+2023-10-30 16:51:50,406 - INFO - Sending to all clients a message with ID = 154
+2023-10-30 16:51:50,407 - INFO - Audio data length: 30000
+2023-10-30 16:51:50,507 - INFO - Sending to all clients a message with ID = 155
+2023-10-30 16:51:50,507 - INFO - Audio data length: 30000
+2023-10-30 16:51:50,607 - INFO - Sending to all clients a message with ID = 156
+2023-10-30 16:51:50,608 - INFO - Audio data length: 30000
+2023-10-30 16:51:50,708 - INFO - Sending to all clients a message with ID = 157
+2023-10-30 16:51:50,708 - INFO - Audio data length: 30000
+2023-10-30 16:51:50,809 - INFO - Sending to all clients a message with ID = 158
+2023-10-30 16:51:50,809 - INFO - Audio data length: 30000
+2023-10-30 16:51:50,909 - INFO - Sending to all clients a message with ID = 159
+2023-10-30 16:51:50,909 - INFO - Audio data length: 30000
+2023-10-30 16:51:51,010 - INFO - Sending to all clients a message with ID = 160
+2023-10-30 16:51:51,010 - INFO - Audio data length: 30000
+2023-10-30 16:51:51,110 - INFO - Sending to all clients a message with ID = 161
+2023-10-30 16:51:51,110 - INFO - Audio data length: 30000
+2023-10-30 16:51:51,211 - INFO - Sending to all clients a message with ID = 162
+2023-10-30 16:51:51,211 - INFO - Audio data length: 30000
+2023-10-30 16:51:51,311 - INFO - Sending to all clients a message with ID = 163
+2023-10-30 16:51:51,311 - INFO - Audio data length: 30000
+2023-10-30 16:51:51,411 - INFO - Sending to all clients a message with ID = 164
+2023-10-30 16:51:51,412 - INFO - Audio data length: 30000
+2023-10-30 16:51:51,512 - INFO - Sending to all clients a message with ID = 165
+2023-10-30 16:51:51,512 - INFO - Audio data length: 30000
+2023-10-30 16:51:51,612 - INFO - Sending to all clients a message with ID = 166
+2023-10-30 16:51:51,613 - INFO - Audio data length: 30000
+2023-10-30 16:51:51,713 - INFO - Sending to all clients a message with ID = 167
+2023-10-30 16:51:51,713 - INFO - Audio data length: 30000
+2023-10-30 16:51:51,813 - INFO - Sending to all clients a message with ID = 168
+2023-10-30 16:51:51,814 - INFO - Audio data length: 30000
+2023-10-30 16:51:51,914 - INFO - Sending to all clients a message with ID = 169
+2023-10-30 16:51:51,914 - INFO - Audio data length: 30000
+2023-10-30 16:51:52,015 - INFO - Sending to all clients a message with ID = 170
+2023-10-30 16:51:52,015 - INFO - Audio data length: 30000
+2023-10-30 16:51:52,115 - INFO - Sending to all clients a message with ID = 171
+2023-10-30 16:51:52,115 - INFO - Audio data length: 30000
+2023-10-30 16:51:52,216 - INFO - Sending to all clients a message with ID = 172
+2023-10-30 16:51:52,216 - INFO - Audio data length: 30000
+2023-10-30 16:51:52,316 - INFO - Sending to all clients a message with ID = 173
+2023-10-30 16:51:52,316 - INFO - Audio data length: 30000
+2023-10-30 16:51:52,417 - INFO - Sending to all clients a message with ID = 174
+2023-10-30 16:51:52,417 - INFO - Audio data length: 30000
+2023-10-30 16:51:52,517 - INFO - Sending to all clients a message with ID = 175
+2023-10-30 16:51:52,517 - INFO - Audio data length: 30000
+2023-10-30 16:51:52,618 - INFO - Sending to all clients a message with ID = 176
+2023-10-30 16:51:52,618 - INFO - Audio data length: 30000
+2023-10-30 16:51:52,718 - INFO - Sending to all clients a message with ID = 177
+2023-10-30 16:51:52,718 - INFO - Audio data length: 30000
+2023-10-30 16:51:52,819 - INFO - Sending to all clients a message with ID = 178
+2023-10-30 16:51:52,819 - INFO - Audio data length: 30000
+2023-10-30 16:51:52,919 - INFO - Sending to all clients a message with ID = 179
+2023-10-30 16:51:52,919 - INFO - Audio data length: 30000
+2023-10-30 16:51:53,020 - INFO - Sending to all clients a message with ID = 180
+2023-10-30 16:51:53,020 - INFO - Audio data length: 30000
+2023-10-30 16:51:53,120 - INFO - Sending to all clients a message with ID = 181
+2023-10-30 16:51:53,120 - INFO - Audio data length: 30000
+2023-10-30 16:51:53,221 - INFO - Sending to all clients a message with ID = 182
+2023-10-30 16:51:53,221 - INFO - Audio data length: 30000
+2023-10-30 16:51:53,321 - INFO - Sending to all clients a message with ID = 183
+2023-10-30 16:51:53,321 - INFO - Audio data length: 30000
+2023-10-30 16:51:53,422 - INFO - Sending to all clients a message with ID = 184
+2023-10-30 16:51:53,422 - INFO - Audio data length: 30000
+2023-10-30 16:51:53,522 - INFO - Sending to all clients a message with ID = 185
+2023-10-30 16:51:53,522 - INFO - Audio data length: 30000
+2023-10-30 16:51:53,623 - INFO - Sending to all clients a message with ID = 186
+2023-10-30 16:51:53,623 - INFO - Audio data length: 30000
+2023-10-30 16:51:53,723 - INFO - Sending to all clients a message with ID = 187
+2023-10-30 16:51:53,724 - INFO - Audio data length: 30000
+2023-10-30 16:51:53,824 - INFO - Sending to all clients a message with ID = 188
+2023-10-30 16:51:53,824 - INFO - Audio data length: 30000
+2023-10-30 16:51:53,924 - INFO - Sending to all clients a message with ID = 189
+2023-10-30 16:51:53,924 - INFO - Audio data length: 30000
+2023-10-30 16:51:54,025 - INFO - Sending to all clients a message with ID = 190
+2023-10-30 16:51:54,025 - INFO - Audio data length: 4026
+2023-10-30 16:51:54,125 - INFO - Sending to all clients a message with ID = 191
+2023-10-30 16:51:54,126 - INFO - Audio data length: 0
+2023-10-30 16:51:54,226 - INFO - No more transmission
+2023-10-30 16:51:54,945 - INFO - Finished
+2023-10-30 16:51:54,945 - INFO - Sending to all clients a message with ID = 192
+2023-10-30 16:51:54,945 - INFO - Total messages sent: 192

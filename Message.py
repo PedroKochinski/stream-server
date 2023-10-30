@@ -1,4 +1,3 @@
-import socket
 import pickle
 
 """
@@ -6,6 +5,9 @@ message codes:
 1 - request to connect / accept connection
 2 - data message
 3 - end of transmission
+4 - client disconnected from server
+5 - server refused connection (max capacity)
+6 - server refused connection (already has the address in address list)
 """
 
 

@@ -5,6 +5,10 @@ from pydub.playback import play
 import io
 import threading
 from queue import Queue
+import logging
+
+# Configurar o logger
+logging.basicConfig(filename='client.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Input the server's IP address and set the server port
 serverIP = input("Enter the server's IP: ")
@@ -47,14 +51,23 @@ class Client:
 
                 while True:
                     code, id, msg = data["code"], data["id"], data["message"]
+                    
+                    # Log received message ID
+                    logging.info("Received MSG %s", id)
 
                     if code == 1:
                         # Connection established
                         self.expectedMsgId = id + 1
-                        print("Connected")
+                        logging.info("Connected")
+                    elif code == 5:
+                        # Connection refused, server is at full capacity right now, should I try again?
+                        self.expectedMsgId = id + 1
+                        self.state = 1
+                        logging.error("Error while connecting. Server is at full capacity, try again later")
+                        break
                     elif code == 3:
                         # End of transmission
-                        print("End of transmission")
+                        logging.info("End of transmission")
                         self.receivedMsgQte += 1
                         self.state = 1
                     elif code == 2:
@@ -64,11 +77,11 @@ class Client:
                             self.expectedMsgId += 1
                         elif id < self.expectedMsgId:
                             # Received out of order (late)
-                            print("Received out of order (late) with ID =", id)
+                            logging.warning("Received out of order (late) with ID = %s", id)
                             self.lostMsgCounter += 1
                         else:
-                            # Lost or out of order
-                            print("Lost or out of order with ID =", id, " Expected =", self.expectedMsgId)
+                            # Lost or out of order  
+                            logging.warning("Lost or out of order with ID = %s. Expected = %s", id, self.expectedMsgId)
                             self.lostMsgCounter += id - self.expectedMsgId
                             self.lostMsgCounter += 1
                             self.expectedMsgId = id + 1
@@ -78,7 +91,7 @@ class Client:
                             audioSegment = AudioSegment.from_mp3(io.BytesIO(msg))
                             audioSegments.append(audioSegment)
                         except IndexError:
-                            print("Error: No audio data found in the message.")
+                            logging.error("Error: No audio data found in the message.")
 
                         if len(audioSegments) >= self.buffer_threshold:
                             for segment in audioSegments:
@@ -96,17 +109,19 @@ class Client:
                         data, _, _ = tmp
 
         except socket.timeout:
-            print("Timed Out")
+            pass
 
         except socket.error as e:
-            print("Error while receiving message:", e)
+            # Log error message
+            logging.error("Error while receiving message: %s", e)
 
         except KeyboardInterrupt:
-            print("Keyboard Interrupt")
+            # Log keyboard interrupt
+            logging.info("Keyboard Interrupt")
             self.state = 1
             self.close()
             exit(1)
-        
+
     def playAudioThread(self):
         # Start playing audio from the buffer
         self.playBuffer()
@@ -144,6 +159,7 @@ def main():
     client.startThreads()
     print("Received", client.receivedMsgQte, "messages")
     print("Lost", client.lostMsgCounter, "messages")
+    # This line seems redundant, consider removing it
     print("Out of order", client.lostMsgCounter, "messages")
     print("Finished")
     client.close()
