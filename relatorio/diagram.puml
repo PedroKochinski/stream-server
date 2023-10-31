@@ -1,0 +1,17 @@
+@startuml
+
+actor Client
+participant "Server" as Server
+
+Client -> Server: sendMsg("Request to Connect")
+Server --> Client: sendMsg("Connection Accepted")
+
+loop stream data
+Server --> Client: sendMsg(stream_data)
+Client -> Client: fillBuffer(stream_data) 
+end
+
+Server --> Client: sendMsg("End of Transmission")
+Client --> Client: calculateStatistics()
+
+@enduml
