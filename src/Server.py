@@ -2,20 +2,18 @@ import Message
 import socket
 import threading
 import time
-from random import randint
 import logging
+import sys
 
-# Configurar o logger
+# create logger
 logging.basicConfig(filename='server.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-
-serverPort = 4501
 
 # Create a Server class to handle audio transmission
 class Server:
     def __init__(self, port):
-        self.bitRate = float(input("Time interval (in seconds): "))  # Set the time interval for audio transmission
+        self.rate = 1  # Set the time interval for audio transmission
         self.port = port
-        self.ip = '10.254.221.81'  # Get the IP address of the host
+        self.ip = socket.gethostbyname(socket.gethostname()) # Get the IP address of the host
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.sock.bind((self.ip, self.port))
         self.sock.settimeout(5)
@@ -43,12 +41,14 @@ class Server:
             logging.info("Message: %s", msg)
             logging.info("Code: %s", code)
 
-            if code == 1:
+            msgDict = {}
+
+            if code == 1: # Request to connect
                 if recvAddr not in self.addressList:
                     if len(self.addressList) < self.maxClientSize:
                         msgDict = {
                             "message": b"Accepting connection",
-                            "code": 1,
+                            "code": 2, # Accept connection code
                             "id": self.msgId
                         }
                         # If the address is not in the list
@@ -62,7 +62,7 @@ class Server:
                     else:
                         msgDict = {
                             "message": b"Rejecting connection, server at full capacity",
-                            "code": 5,
+                            "code": 3, # Reject connection code
                             "id": self.msgId
                         }
                         
@@ -77,7 +77,7 @@ class Server:
                 
                 self.message.sendMessage(msgDict, recvAddr, recvPort)  # Send an acknowledgment message to the sender
                 
-            elif code == 4:
+            elif code == 4: # Request to disconnect
                 if recvAddr in self.addressList:
                     # If the address is in the list remove it from the list
                     self.addressList.remove(recvAddr)  # Remove the sender's address from the list
@@ -129,25 +129,43 @@ class Server:
                     break
 
     def sendMsgThread(self):
+            print("Waiting for clients to connect...")
+            
             while True:
-                try:
-                    if len(self.addressList) > 0:
-                        with open('brasil.mp3', "rb") as audioFile:
+
+                if len(self.addressList) > 0:
+                    streamFileName = input("Enter the name of the file to be streamed: ")
+                    self.rate = float(input("Enter the rate of transmission (in seconds): "))
+                    try:
+                        with open(streamFileName, "rb") as audioFile:
+                            print("Sending audio data...")
                             while True:
                                 audioData = audioFile.read(30000)
                                 # Log message
                                 logging.info("Audio data length: %s", len(audioData))
-                                time.sleep(self.bitRate)
+                                time.sleep(self.rate)
                                 if len(audioData) <= 0:
                                     break
-                                self.sendMessageToAll(audioData, 2)  # Send audio data to all clients
+                                self.sendMessageToAll(audioData, 6)  # Send audio data to all clients
                         audioFile.close()
                         logging.info("No more transmission")
                         self.state = 1  # Update server state to indicate it has finished
                         break
-                except socket.error as e:
-                    # Log error message
-                    logging.error("Error while sending message: %s", e)
+                    except FileNotFoundError:
+                        # Log error message
+                        logging.exception("File not found")
+                        print("File not found. Try again? (y/n)")
+                        choice = input()
+                        if choice == "y":
+                            continue
+                        else:
+                            self.state = 1
+                            break
+
+                    except socket.error as e:
+                        # Log error message
+                        logging.exception("Scoket Exception: Error while sending message - %s", e)
+
 
     def startThreads(self):
         # Create and start the receive audio thread and the send audio thread
@@ -161,15 +179,20 @@ class Server:
         sendMsgThread.join()
 
 def main():
-    server = Server(serverPort)
+    if len(sys.argv) == 2:
+        serverPort = int(sys.argv[1])
+        server = Server(serverPort)
 
-    logging.info("UDP Streaming Server in %s:%s", server.ip, server.port)
+        logging.info("UDP Streaming Server in %s:%s", server.ip, server.port)
 
-    server.startThreads()  # Start the server's main threads for receiving and sending audio
+        server.startThreads()  # Start the server's main threads for receiving and sending audio
 
-    server.sendMessageToAll("End of transmission", 3)  # Send a message indicating the end of transmission
-    logging.info("Total messages sent: %s", server.msgId)  # Log the total number of messages sent
-    server.close()  # Close the server
+        server.sendMessageToAll("End of transmission", 4)  # Send a message indicating the end of transmission
+        logging.info("Total messages sent: %s", server.msgId)  # Log the total number of messages sent
+        print("Closing server...")
+        server.close()  # Close the server
+    else:
+        print("Usage: python3 Server.py <port>")
 
 if __name__ == "__main__":
     main()

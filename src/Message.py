@@ -2,13 +2,15 @@ import pickle
 
 """
 message codes:
-1 - request to connect / accept connection
-2 - data message
-3 - end of transmission
-4 - client disconnected from server
-5 - server refused connection (max capacity)
-6 - server refused connection (already has the address in address list)
+1 - request to connect 
+2 - accept connection
+3 - server refused connection (max capacity)
+4 - request to disconnect
+5 - client disconnected from server
+6 - data message
+7 - server refused connection (already has the address in address list)
 """
+
 
 
 class Message:
@@ -26,7 +28,6 @@ class Message:
         while True:
             data, (recvAddr, recvPort) = self.sock.recvfrom(65535)  # buffer size is 65535 bytes, max UDP segment size
             res = pickle.loads(data)
-            print(len(res["message"]))
             return res, recvAddr, recvPort
         
 
