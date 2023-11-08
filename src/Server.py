@@ -140,14 +140,14 @@ class Server:
                         with open(streamFileName, "rb") as audioFile:
                             print("Sending audio data...")
                             while True:
-                                audioData = audioFile.read(30000)
+                                audioData = audioFile.read(30000) # Read 30000 bytes of audio data
                                 # Log message
                                 logging.info("Audio data length: %s", len(audioData))
-                                time.sleep(self.rate)
-                                if len(audioData) <= 0:
+                                time.sleep(self.rate) # Sleep for the specified rate
+                                if len(audioData) <= 0: # If there is no more audio data, break the loop
                                     break
                                 self.sendMessageToAll(audioData, 6)  # Send audio data to all clients
-                        audioFile.close()
+                        audioFile.close() # Close the audio file
                         logging.info("No more transmission")
                         self.state = 1  # Update server state to indicate it has finished
                         break

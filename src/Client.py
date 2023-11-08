@@ -54,7 +54,7 @@ class Client:
 
     def receiveAudioThread(self):
         audioSegments = []
-
+        data = {}
         while True:
             if self.state == 1:
                 # If the client is finished, break the loop
@@ -74,60 +74,61 @@ class Client:
             except socket.error as e:
                 # Log socket error message
                 logging.exception("Scoket Exception: Error while receiving message - %s", e)
-
-            code, id, msg = data["code"], data["id"], data["message"]
             
-            # Log received message ID
-            logging.info("Received MSG %s", id)
+            if data != {}:
+                code, id, msg = data["code"], data["id"], data["message"]
+                
+                # Log received message ID
+                logging.info("Received MSG %s", id)
 
-            # Connection established
-            if code == 2:
-                self.expectedMsgId = id + 1
-                logging.info("Connected")
-            # Connection refused, server is at full capacity right now, should I try again?
-            elif code == 3:
-                self.state = 1
-                logging.error("Error while connecting. Server is at full capacity, try again later")
-                break
-            # End of transmission
-            elif code == 4:
-                logging.info("End of transmission")
-                self.receivedMsgQte += 1
-                self.state = 1
-            # Data message
-            elif code == 6:
-                # Received in order
-                if id == self.expectedMsgId:
-                    self.receivedMsgQte += 1
-                    self.expectedMsgId += 1
-                # Received out of order (late)
-                elif id < self.expectedMsgId:
-                    logging.warning("Received out of order (late) with ID = %s", id)
-                    self.outOfOrderMsgCounter += 1
-                    self.receivedMsgQte += 1
-                # Lost or out of order  
-                else:
-                    logging.warning("Lost or out of order with ID = %s. Expected = %s", id, self.expectedMsgId)
-                    self.lostMsgCounter += id - self.expectedMsgId
-                    self.outOfOrderMsgCounter += 1
-                    self.lostMsgCounter += 1
+                # Connection established
+                if code == 2:
                     self.expectedMsgId = id + 1
+                    logging.info("Connected")
+                # Connection refused, server is at full capacity right now, should I try again?
+                elif code == 3:
+                    self.state = 1
+                    logging.error("Error while connecting. Server is at full capacity, try again later")
+                    break
+                # End of transmission
+                elif code == 4:
+                    logging.info("End of transmission")
+                    self.receivedMsgQte += 1
+                    self.state = 1
+                # Data message
+                elif code == 6:
+                    # Received in order
+                    if id == self.expectedMsgId:
+                        self.receivedMsgQte += 1
+                        self.expectedMsgId += 1
+                    # Received out of order (late)
+                    elif id < self.expectedMsgId:
+                        logging.warning("Received out of order (late) with ID = %s", id)
+                        self.outOfOrderMsgCounter += 1
+                        self.receivedMsgQte += 1
+                    # Lost or out of order  
+                    else:
+                        logging.warning("Lost or out of order with ID = %s. Expected = %s", id, self.expectedMsgId)
+                        self.lostMsgCounter += id - self.expectedMsgId
+                        self.outOfOrderMsgCounter += 1
+                        self.lostMsgCounter += 1
+                        self.expectedMsgId = id + 1
 
-                msg = data["message"]
+                    msg = data["message"]
 
-                try:
-                    # Convert the message to an audio segment and put it in the buffer
-                    audioSegment = AudioSegment.from_mp3(io.BytesIO(msg))
-                    audioSegments.append(audioSegment)
-                except IndexError:
-                    logging.exception("Exception: No audio data found in the message.")
+                    try:
+                        # Convert the message to an audio segment and put it in the buffer
+                        audioSegment = AudioSegment.from_mp3(io.BytesIO(msg))
+                        audioSegments.append(audioSegment)
+                    except IndexError:
+                        logging.exception("Exception: No audio data found in the message.")
 
-                # If the buffer is full, put all segments in the buffer 
-                if len(audioSegments) >= self.bufferThreshold:
-                    for segment in audioSegments:
-                        self.audioBuffer.put(segment)
-                    audioSegments = []
-            
+                    # If the buffer is full, put all segments in the buffer 
+                    if len(audioSegments) >= self.bufferThreshold:
+                        for segment in audioSegments:
+                            self.audioBuffer.put(segment)
+                        audioSegments = []
+                
 
     def playAudioThread(self):
         # Start playing audio from the buffer
