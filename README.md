@@ -66,13 +66,5 @@ As mensagens são compostas por campos específicos, e são utilizadas para a co
 * [server.log](server.log.txt): log do **servidor**
 * [client.log](client.log.txt): log do **cliente**
 
-## Projeto
-A implementação completa do projeto está disponível no GitHub:
-
-{{< icon name="fab fa-github" pack="fab" >}} [Respositório](https://github.com/PedroKochinski/stream-server)
-
-## Demonstração
-![Demonstração](preview.png)
-
 <br>
 
